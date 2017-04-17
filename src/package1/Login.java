@@ -2,7 +2,7 @@ package package1;
 
 import java.sql.*;
 
-public class login {
+public class Login {
 
 	int uID;
 	String username;

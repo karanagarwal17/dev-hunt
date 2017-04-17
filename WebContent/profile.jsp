@@ -1,4 +1,7 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -134,7 +137,7 @@
 												<div class="col-md-6 education">
 												<br>
 												 <p id="board"><strong>Board: </strong>CBSE</p>
-												 <p id="12per"><strong>12th Percentage:	</strong><% user.twelthpercent %></p>
+												 <p id="12per"><strong>12th Percentage:	</strong>92%</p>
 												 <p id="10per"><strong>10th Percentage 	</strong>95%</p>
 												 <p id="yearop"><strong>Year of Passing: </strong>2015</p>
 												 <p id="college"><strong>College: </strong>LNMIIT</p>

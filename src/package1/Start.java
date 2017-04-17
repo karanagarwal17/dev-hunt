@@ -2,13 +2,40 @@ package package1;
 
 import java.sql.*;
 
-public class start {
+public class Start {
 
 public static void main(String[] args) {
 
 	connection connect = new connection();
+	
 
 	try{
+		String sql_0="drop table if exists Education";
+		connect.update(sql_0);
+		String sql_1="drop table if exists Details";
+		connect.update(sql_1);
+		String sql_2="drop table if exists SkillSet";
+		connect.update(sql_2);
+		String sql_3="drop table if exists Certifications";
+		connect.update(sql_3);
+		String sql_4="drop table if exists WorkExperience ";
+		connect.update(sql_4);
+		String sql_5="drop table if exists Efficiency";
+		connect.update(sql_5);
+		String sql_6="drop table if exists Internships";
+		connect.update(sql_6);
+		String sql_7="drop table if exists Projects";
+		connect.update(sql_7);
+		String sql_8="drop table if exists Research";
+		connect.update(sql_8);
+		String sql_9="drop table if exists ProjectID";
+		connect.update(sql_9);
+		String sql_10="drop table if exists ResearchID";
+		connect.update(sql_10);
+		String sql_11="drop table if exists Login";
+		connect.update(sql_11);
+		String sql_12="drop table if exists RecDetails";
+		connect.update(sql_12);
 		
 		String sql0 = "CREATE TABLE Education " +
 		              "(uID INTEGER not NULL, " +
@@ -94,12 +121,12 @@ public static void main(String[] args) {
 		              " PRIMARY KEY ( rID ))";
 		connect.update(sql8);
 
-		String sql9 = "CREATE TABLE ProjectId " +
+		String sql9 = "CREATE TABLE ProjectID " +
 		              "(pID integer, " +
 		              " uID integer )";
 		connect.update(sql9);
 
-		String sql10 = "CREATE TABLE ResearchId " +
+		String sql10 = "CREATE TABLE ResearchID " +
 		               "(rID integer, " +
 		               " uID integer)";
 		connect.update(sql10);
@@ -122,7 +149,7 @@ public static void main(String[] args) {
 		connect.update(sql12);
 		
 		SkillSet s = new SkillSet();
-		int status = s.addSkillSet(2,"CSS");
+		int status = s.addSkillSet(1,"CSS");
 		System.out.println(status);
 		ResultSet rs = s.getSkillSet(1);
 		
@@ -130,7 +157,6 @@ public static void main(String[] args) {
 		
 		System.out.println(rs.getInt(1) + rs.getString(2));
 		
-		connect.close();
 		
 	}
 	catch(SQLException se) {
