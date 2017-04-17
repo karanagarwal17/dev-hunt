@@ -4,14 +4,27 @@ import java.sql.*;
 
 class connection {
 	
+	Statement stmt;
+	Connection con;
+	
+	connection(){
+		try{
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		con = DriverManager.getConnection("jdbc:mysql://localhost/DPMS","root","karanagarwal17");
+		stmt = con.createStatement();	
+		}
+		catch(SQLException se){
+			se.printStackTrace();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
 	ResultSet query(String query) {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/DPMS","root","karanagarwal17");
-			Statement stmt = con.createStatement();	
 			ResultSet rs = stmt.executeQuery(query);
-			
 			return rs;
 		}
 		catch(SQLException se){
@@ -25,14 +38,8 @@ class connection {
 	}
 	
 	int update(String query) {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/DPMS","root","karanagarwal17");
-			Statement stmt = con.createStatement();	
-			int status = stmt.executeUpdate(query);
-			con.close();
-			
+		try {	
+			int status = stmt.executeUpdate(query);			
 			return status;
 		}
 		catch(SQLException se){
@@ -42,6 +49,15 @@ class connection {
 		catch(Exception e){
 			e.printStackTrace();
 			return 0;
+		}
+	}
+	
+	void close(){
+		try{
+		con.close();
+		}
+		catch(SQLException se){
+			se.printStackTrace();
 		}
 	}
 }

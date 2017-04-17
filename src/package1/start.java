@@ -130,6 +130,7 @@ public static void main(String[] args) {
 		
 		System.out.println(rs.getInt(1) + rs.getString(2));
 		
+		connect.close();
 		
 	}
 	catch(SQLException se) {
