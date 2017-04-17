@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
+<%@ page import="package1.*, java.sql.*" %>
 
 <html lang="en">
 <head>
@@ -9,6 +10,13 @@
 	
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+	<%  
+	 if(session.getAttribute("uID") == null){
+		 response.sendRedirect("login.jsp");
+	 }
+	int uID = Integer.parseInt(session.getAttribute("uID").toString());
+	%>
 
 	<title>User Profile</title>
 
@@ -50,11 +58,59 @@
 						</a>
 		            </li>
 		            <li>
-		            <a href="#">Logout</a>
+		            	<a href="Servlet_logout">Logout</a>
 		            </li>
         		</ul>
         	</div>
     </nav>
+    
+    <%
+		
+		package1.Details d = new Details();
+		ResultSet rs = d.getDetails(uID);
+		
+		package1.Education e = new Education();
+		ResultSet rs1 = e.getEducation(uID);
+		
+		String name = "";
+		String gender = "";
+		String mailId = "";
+		String phoneNumber = "";
+		String nationality = "";
+		String fieldOfInterest = "";
+		String internJob = "";
+		int age = 0;
+		int tenthpercent = 0;
+		int twelfthpercent = 0;
+		String board = "";
+		int yearOfPassing = 0;
+		String collegeName = "";
+		int currentSem = 0;
+		String CGPA = "";
+		
+		if(rs.next() != false){
+		name = rs.getString("name");
+		gender = rs.getString("gender");
+		age = rs.getInt("age");
+		mailId = rs.getString("mailId");
+		phoneNumber = rs.getString("phoneNumber");
+		nationality = rs.getString("nationality");
+		fieldOfInterest = rs.getString("fieldOfInterest");
+		internJob = rs.getString("internJob");
+		}
+		
+		if(rs1.next() != false){
+			tenthpercent = rs1.getInt("tenthpercent");
+			twelfthpercent = rs1.getInt("twelfthpercent");
+			board = rs1.getString("board");
+			yearOfPassing = rs1.getInt("yearOfPassing");
+			collegeName = rs1.getString("collegeName");
+			currentSem = rs1.getInt("currentSem");
+			CGPA = rs1.getString("CGPA");
+		}
+		
+		%>
+    
 
     <div class="wrapper">
 		<div class="header" style="background: #4568DC;  /* fallback for old browsers */
@@ -79,26 +135,35 @@
       				<section id="about">
       				<form class="form" method="" action="">
       				<p>General Information:</p>     				
-			        <p class="setting2" id="lname"><span>Name </span><input type="text" value='Ayush' class="form-control" id="username" placeholder="Username..."></p>
-        	        <p class="setting2" id="lage"><span>Age </span><input type="text" value='Ayush' class="form-control" id="age" placeholder="Username..."></p>
-			        <p class="setting2" id="ldob"><span>DOB </span><input type="text" value='01/29/1998' class="datepicker form-control" id="dob" placeholder="Username..."></p>
-			        <p class="setting2" id="lgender"><span>Gender </span><input type="text" value='Ayush' class="form-control" id="gender" placeholder="Username..."></p>
-			        <p class="setting2" id="lnationality"><span>Nationality </span><input type="text" value='Ayush' class="form-control" id="nationality" placeholder="Username..."></p>
-			        <p class="setting2" id="lemail"><span>E-mail </span><input type="text" value='Ayush' class="form-control" id="email" placeholder="Username..."></p>
-			        <p class="setting2" id="lphone"><span>Phone </span><input type="text" value='Ayush' class="form-control" id="phone" placeholder="Username..."></p>
+			        <p class="setting2" id="lname"><span>Name </span><input type="text" value='<%=name %>' class="form-control" id="username" placeholder="Name..."></p>
+        	        <p class="setting2" id="lage"><span>Age </span><input type="text" value='<%=age %>' class="form-control" id="age" placeholder="Age..."></p>
+			        <p class="setting2" id="lgender"><span>Gender </span><input type="text" value='<%=gender %>' class="form-control" id="gender" placeholder="Gender..."></p>
+			        <p class="setting2" id="lnationality"><span>Nationality </span><input type="text" value='<%=nationality %>' class="form-control" id="nationality" placeholder="Nationality..."></p>
+			        <p class="setting2" id="lemail"><span>E-mail </span><input type="text" value='<%=mailId %>' class="form-control" id="email" placeholder="E-mail..."></p>
+			        <p class="setting2" id="lphone"><span>Phone </span><input type="text" value='<%=phoneNumber %>' class="form-control" id="phone" placeholder="Phone..."></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			        </section>
 		
+					<section id="education" class="hidden">
+			        <form class="form" method="" action="">
+      				<p>Education:</p>   				
+			        <p class="setting2" id="lboard"><span>Board </span><input type="text" value='<%=board %>' class="form-control" id="board" placeholder="Board..."></p>
+        	        <p class="setting2" id="l10per"><span>10th Percentage </span><input type="text" value='<%=tenthpercent %>' class="form-control" id="10per" placeholder="10th Percentage..."></p>
+			        <p class="setting2" id="l12per"><span>12th Percentage </span><input type="text" value='<%=twelfthpercent %>' class="form-control" id="12per" placeholder="12th Percentage..."></p>
+			        <p class="setting2" id="lyearop"><span>Year of Passing </span><input type="text" value='<%=yearOfPassing %>' class="form-control" id="yearop" placeholder="Year Of Passing..."></p>
+			        <p class="setting2" id="lcollege"><span>College </span><input type="text" value='<%=collegeName %>' class="form-control" id="college" placeholder="College Name..."></p>
+			        <p class="setting2" id="lcgpa"><span>CGPA </span><input type="text" value='<%=CGPA %>' class="form-control" id="cgpa" placeholder="CGPA..."></p>
+			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
+			        </form>
+			      </section>
+		
 					<section id="skills" class="hidden">
 					<form class="form" method="" action="">
 			        <p>Add new skill:</p>
-			        <p class="setting2"><span>Skill Name</span><input type="text" value='' class="form-control" id="skname" placeholder="Skill Name"></p>
-			        <center><p class="setting2"><strong>Efficiency</strong></p></center>
-			        <p class="setting2"><span>Efficiency in the Skill:</span><input type="text" value='' class="form-control" id="skefficiency" placeholder="Efficiency"></p>
-			        <center><p class="setting2"><strong>Experience</strong></p></center>
-			        <p class="setting2"><span>Number of Years:</span><input type="text" value='' class="form-control" id="skyears" placeholder="Number of Years"></p>
-			        <p class="setting2"><span>Number of Projects:</span><input type="text" value='' class="form-control" id="skprojects" placeholder="Number of Projects"></p>
+			        <p class="setting2"><span>Name</span><input type="text" value='' class="form-control" id="skname" placeholder="Skill Name"></p>
+			        <p class="setting2"><span>Efficiency:</span><input type="text" value='' class="form-control" id="skefficiency" placeholder="Percentage"></p>
+			        <p class="setting2"><span>Experience:</span><input type="text" value='' class="form-control" id="skyears" placeholder="Number of Years"></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			      	</section>
@@ -135,27 +200,14 @@
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			      </section>
-      
-			      <section id="education" class="hidden">
-			        <form class="form" method="" action="">
-      				<p>Education:</p>   				
-			        <p class="setting2" id="lboard"><span>Board </span><input type="text" value='Ayush' class="form-control" id="board" placeholder="Username..."></p>
-        	        <p class="setting2" id="l10per"><span>10th Percentage </span><input type="text" value='Ayush' class="form-control" id="10per" placeholder="Username..."></p>
-			        <p class="setting2" id="l12per"><span>12th Percentage </span><input type="text" value='Ayush' class="form-control" id="12per" placeholder="Username..."></p>
-			        <p class="setting2" id="lyearop"><span>Year of Passing </span><input type="text" value='Ayush' class="form-control" id="yearop" placeholder="Username..."></p>
-			        <p class="setting2" id="lcollege"><span>College </span><input type="text" value='Ayush' class="form-control" id="college" placeholder="Username..."></p>
-			        <p class="setting2" id="lcgpa"><span>CGPA </span><input type="text" value='Ayush' class="form-control" id="cgpa" placeholder="Username..."></p>
-			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
-			        </form>
-			      </section>
 
 			      	<section id="certifications" class="hidden">
 			        <form class="form" method="" action="">
       				<p>Add new certification:</p>   				
-			       	<p class="setting2"><span>Skill Name</span><input type="text" value='' class="form-control" id="skname" placeholder="Skill Name"></p>
-			        <center><p class="setting2"><strong>Certification</strong></p></center>
+			       	<p class="setting2"><span>Name</span><input type="text" value='' class="form-control" id="skname" placeholder="Skill Name"></p>
 			        <p class="setting2"><span>Organization:</span><input type="text" value='' class="form-control" id="skorg" placeholder="Organization Name"></p>
 			        <p class="setting2"><span>Issued On:</span><input class="datepicker form-control" type="text" value="" id="skdate" placeholder="mm/dd/yyyy" /></p>
+					<p class="setting2"><span>Course Name:</span><input type="text" value='' class="form-control" id="skorg" placeholder="Course Name"></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			      </section>

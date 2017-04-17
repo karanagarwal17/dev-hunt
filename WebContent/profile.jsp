@@ -70,7 +70,7 @@
 						</a>
 		            </li>
 		            <li>
-		            <a href="#">Logout</a>
+		            	<a href="Servlet_logout">Logout</a>
 		            </li>
         		</ul>
         	</div>
