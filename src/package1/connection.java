@@ -11,7 +11,6 @@ class connection {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/DPMS","root","karanagarwal17");
 			Statement stmt = con.createStatement();	
 			ResultSet rs = stmt.executeQuery(query);
-			con.close();
 			
 			return rs;
 		}

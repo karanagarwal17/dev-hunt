@@ -1,12 +1,14 @@
 package package1;
 
+import java.sql.*;
+
 public class start {
 
 public static void main(String[] args) {
 
 	connection connect = new connection();
 
-	//try{
+	try{
 		
 		String sql0 = "CREATE TABLE Education " +
 		              "(uID INTEGER not NULL, " +
@@ -120,14 +122,18 @@ public static void main(String[] args) {
 		connect.update(sql12);
 		
 		SkillSet s = new SkillSet();
-		s.addSkillSet(1,"HTML");
+		int status = s.addSkillSet(2,"CSS");
+		System.out.println(status);
+		ResultSet rs = s.getSkillSet(1);
+		
+		rs.first();
+		
+		System.out.println(rs.getInt(1) + rs.getString(2));
 		
 		
-		
-	//}
-	//catch(SQLException se) {
-		//Handle errors for JDBC
-	//	se.printStackTrace();
-	//}
+	}
+	catch(SQLException se) {
+		se.printStackTrace();
+	}
 }
 }
