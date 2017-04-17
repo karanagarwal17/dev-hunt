@@ -72,6 +72,7 @@
 			          <li><a href="#education">Education</a></li>
 			          <li><a href="#skills">Skills</a></li>
 			          <li><a href="#workex">Work Experience</a></li>
+			          <li><a href="#certifications">Certifications</a></li>
 			        </ul>
       				</nav>
 
@@ -92,46 +93,45 @@
 					<section id="skills" class="hidden">
 					<form class="form" method="" action="">
 			        <p>Add new skill:</p>
-			        <p class="setting2"><span>Skill Name</span><input type="text" value='HTML5' class="form-control" id="skname" placeholder="Skill Name"></p>
-			        <center><p class="setting2"><strong>Certification</strong></p></center>
-			        <p class="setting2"><span>Organization:</span><input type="text" value='Coursera' class="form-control" id="skorg" placeholder="Skill Name"></p>
-			        <p class="setting2"><span>Issued On:</span><input class="datepicker form-control" type="text" value="04/18/2017" id="issuedate"/></p>
-			        <center><p class="setting2"><strong>Work Experience</strong></p></center>
-			        <p class="setting2"><span>Number of Years:</span><input type="text" value='2' class="form-control" id="skyears" placeholder="2"></p>
-			        <p class="setting2"><span>Number of Projects:</span><input type="text" value='2' class="form-control" id="skprojects" placeholder="2"></p>
+			        <p class="setting2"><span>Skill Name</span><input type="text" value='' class="form-control" id="skname" placeholder="Skill Name"></p>
+			        <center><p class="setting2"><strong>Efficiency</strong></p></center>
+			        <p class="setting2"><span>Efficiency in the Skill:</span><input type="text" value='' class="form-control" id="skefficiency" placeholder="Efficiency"></p>
+			        <center><p class="setting2"><strong>Experience</strong></p></center>
+			        <p class="setting2"><span>Number of Years:</span><input type="text" value='' class="form-control" id="skyears" placeholder="Number of Years"></p>
+			        <p class="setting2"><span>Number of Projects:</span><input type="text" value='' class="form-control" id="skprojects" placeholder="Number of Projects"></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			      	</section>
       
-			      <section id="workex" class="hidden">
+			      	<section id="workex" class="hidden">
 			      	<p>Add work experience:</p>
 			        <form class="form" method="" action="">
 			        <p class="setting2"><strong>INTERNSHIP</strong></p>
-			        <p class="setting2"><span>Company:</span><input type="text" value='HTML5' class="form-control" id="company" placeholder="Company Name"></p>
-			        <p class="setting2"><span>Started:</span><input class="datepicker form-control" type="text" value="04/18/2017" id="internstarted"/></p>
-			        <p class="setting2"><span>Ended:</span><input class="datepicker form-control" type="text" value="04/18/2017" id="internended"/></p>
-			        <p class="setting2"><span>Stipend:</span><input type="text" value='HTML5' class="form-control" id="stipend" placeholder="Stipend"></p>
+			        <p class="setting2"><span>Company:</span><input type="text" value='' class="form-control" id="company" placeholder="Company Name"></p>
+			        <p class="setting2"><span>Started:</span><input class="datepicker form-control" type="text" value="" id="intstarted" placeholder="mm/dd/yyyy"/></p>
+			        <p class="setting2"><span>Ended:</span><input class="datepicker form-control" type="text" value="" id="intended" placeholder="mm/dd/yyyy"/></p>
+			        <p class="setting2"><span>Stipend:</span><input type="text" value='' class="form-control" id="stipend" placeholder="Stipend"></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			        
 			        <form class="form" method="" action="">
 			        <p class="setting2"><strong>RESEARCH</strong></p>
-			       	<p class="setting2"><span>Topic:</span><input type="text" value='HTML5' class="form-control" id="rtopic" placeholder="Company Name"></p>
-			        <p class="setting2"><span>Field:</span><input class="form-control" type="text" value="WEB" id="rfield" placeholder="Field" /></p>
-			        <p class="setting2"><span>Published:</span><input class="datepicker form-control" type="text" value="rdate" id="internended"/></p>
-			        <p class="setting2"><span>Published In:</span><input type="text" value='HTML5' class="form-control" id="rpublishedin" placeholder="Published In"></p>
-			        <p class="setting2"><span>Supervised By:</span><input type="text" value='HTML5' class="form-control" id="rsupervised" placeholder="Supervsed By"></p>
+			       	<p class="setting2"><span>Topic:</span><input type="text" value='' class="form-control" id="rtopic" placeholder="Company Name"></p>
+			        <p class="setting2"><span>Field:</span><input class="form-control" type="text" value="" id="rfield" placeholder="Field" /></p>
+			        <p class="setting2"><span>Published:</span><input class="datepicker form-control" type="text" value="" id="rpublished" placeholder="mm/dd/yyyy"/></p>
+			        <p class="setting2"><span>Published In:</span><input type="text" value='' class="form-control" id="rpublishedin" placeholder="Published In"></p>
+			        <p class="setting2"><span>Supervised By:</span><input type="text" value='' class="form-control" id="rsupervised" placeholder="Supervsed By"></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 
 
 			        <form class="form" method="" action="">
 			        <p class="setting2"><strong>PROJECT</strong></p>
-			        <p class="setting2"><span>Topic:</span><input type="text" value='HTML5' class="form-control" id="ptopic" placeholder="Company Name"></p>
-			        <p class="setting2"><span>Field:</span><input class="form-control" type="text" value="WEB" id="pfield" placeholder="Field" /></p>
-			        <p class="setting2"><span>Started:</span><input class="datepicker form-control" type="text" value="04/18/2017" id="pstarted"/></p>
-			        <p class="setting2"><span>Ended:</span><input class="datepicker form-control" type="text" value="04/18/2017" id="pended"/></p>
-			        <p class="setting2"><span>Supervised By:</span><input type="text" value='HTML5' class="form-control" id="psupervised" placeholder="Supervsed By"></p>
+			        <p class="setting2"><span>Topic:</span><input type="text" value='' class="form-control" id="ptopic" placeholder="Company Name"></p>
+			        <p class="setting2"><span>Field:</span><input class="form-control" type="text" value="" id="pfield" placeholder="Field" /></p>
+			        <p class="setting2"><span>Started:</span><input class="datepicker form-control" type="text" value="" id="pstarted" placeholder="mm/dd/yyyy"/></p>
+			        <p class="setting2"><span>Ended:</span><input class="datepicker form-control" type="text" value="" id="pended" placeholder="mm/dd/yyyy"/></p>
+			        <p class="setting2"><span>Supervised By:</span><input type="text" value='' class="form-control" id="psupervised" placeholder="Supervsed By"></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			      </section>
@@ -145,6 +145,17 @@
 			        <p class="setting2" id="lyearop"><span>Year of Passing </span><input type="text" value='Ayush' class="form-control" id="yearop" placeholder="Username..."></p>
 			        <p class="setting2" id="lcollege"><span>College </span><input type="text" value='Ayush' class="form-control" id="college" placeholder="Username..."></p>
 			        <p class="setting2" id="lcgpa"><span>CGPA </span><input type="text" value='Ayush' class="form-control" id="cgpa" placeholder="Username..."></p>
+			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
+			        </form>
+			      </section>
+
+			      	<section id="certifications" class="hidden">
+			        <form class="form" method="" action="">
+      				<p>Add new certification:</p>   				
+			       	<p class="setting2"><span>Skill Name</span><input type="text" value='' class="form-control" id="skname" placeholder="Skill Name"></p>
+			        <center><p class="setting2"><strong>Certification</strong></p></center>
+			        <p class="setting2"><span>Organization:</span><input type="text" value='' class="form-control" id="skorg" placeholder="Organization Name"></p>
+			        <p class="setting2"><span>Issued On:</span><input class="datepicker form-control" type="text" value="" id="skdate" placeholder="mm/dd/yyyy" /></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			      </section>
