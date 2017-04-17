@@ -12,23 +12,23 @@ public class Research {
 	String publishDate;
 
 	ResultSet getResearch(int uID){
-		try {
+	//	try {
 			String query = "Select * from Research where uID=" +
 					uID +
 					";";
 
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			ResultSet rs = connect.query(query);
 
 			return rs;
-		}
-		catch(SQLException e){
-			return null;
-		}
+	//	}
+	//	catch(SQLException e){
+	//		return null;
+	//	}
 	}
 
-	ResultSet addResearch(int rID,String topic, String field, String supervisedBy, String publishedIn, String publishDate){
-		try {
+	int addResearch(int rID,String topic, String field, String supervisedBy, String publishedIn, String publishDate){
+	//	try {
 			String query = "Insert into Research values (" +
 						rID +
 						",\"" +
@@ -45,13 +45,13 @@ public class Research {
 
 
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			int status = connect.update(query);
 
-			return null;
-		}
-		catch(SQLException e){
-			return null;
-		}
+			return status;
+	//	}
+	//	catch(SQLException e){
+	//		return null;
+	//	}
 	}
 
 }

@@ -1,7 +1,6 @@
 package package1;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ProjectID {
 
@@ -9,23 +8,23 @@ public class ProjectID {
 	int pID;
 	
 	ResultSet getProjectID(int uID){
-		try {
+	//	try {
 			String query = "Select * from ProjectID where uID=" +
 					uID +
 					";";
 
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			ResultSet rs = connect.query(query);
 
 			return rs;
-		}
-		catch(SQLException e){
-			return null;
-		}
+	//	}
+	//	catch(SQLException e){
+	//		return null;
+	//	}
 	}
 
-	ResultSet addProjectID(int uID,int pID){
-		try {
+	int addProjectID(int uID,int pID){
+	//	try {
 			String query = "Insert into ProjectID values (" +
 						uID +
 						"," +
@@ -34,13 +33,13 @@ public class ProjectID {
 						
 
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			int status = connect.update(query);
 
-			return null;
-		}
-		catch(SQLException e){
-			return null;
-		}
+			return status;
+	//	}
+	//	catch(SQLException e){
+	//		return null;
+	//	}
 	}
 	
 }

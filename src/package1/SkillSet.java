@@ -8,23 +8,23 @@ public class SkillSet {
 	String skillName;
 
 	ResultSet getSkillSet(int uID){
-		try {
+		//try {
 			String query = "Select * from SkillSet where uID=" +
 					uID +
 					";";
 
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			ResultSet rs = connect.query(query);
 
 			return rs;
-		}
-		catch(SQLException e){
-			return null;
-		}
+	//}
+	//	catch(SQLException e){
+	//		return null;
+	//	}
 	}
 
-	ResultSet addSkillSet(int uID,String skillName){
-		try {
+	int addSkillSet(int uID,String skillName){
+	//	try {
 			String query = "Insert into SkillSet values (" +
 						uID +
 						",\"" +
@@ -33,13 +33,13 @@ public class SkillSet {
 
 
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			int status = connect.update(query);
 
-			return null;
-		}
-		catch(SQLException e){
-			return null;
-		}
+			return status;
+	//	}
+	//	catch(SQLException e){
+	//		return null;
+	//	}
 	}
 
 }

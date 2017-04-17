@@ -10,23 +10,23 @@ public class WorkExperience {
 	int noOfProjects;
 
 	ResultSet getWorkEx(int uID){
-		try {
+	//	try {
 			String query = "Select * from WorkExperience where uID=" +
 					uID +
 					";";
 
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			ResultSet rs = connect.query(query);
 
 			return rs;
-		}
-		catch(SQLException e){
-			return null;
-		}
+	//	}
+	//	catch(SQLException e){
+	//		return null;
+	//	}
 	}
 
-	ResultSet addWorkEx(int uID,String skillName, int noOfYears, int noOfProjects){
-		try {
+	int addWorkEx(int uID,String skillName, int noOfYears, int noOfProjects){
+	//	try {
 			String query = "Insert into WorkExperience values (" +
 						uID +
 						",\"" +
@@ -39,13 +39,13 @@ public class WorkExperience {
 
 
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			int status = connect.update(query);
 
-			return null;
-		}
-		catch(SQLException e){
-			return null;
-		}
+			return status;
+	//	}
+	//	catch(SQLException e){
+	//		return null;
+	//	}
 	}
 
 }

@@ -23,7 +23,7 @@ public class RecDetails {
 					"\"";
 			
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			ResultSet rs = connect.query(query);
 			
 			int i = 0;
 			while (rs.next())
@@ -43,12 +43,12 @@ public class RecDetails {
 		}
 	}
 
-	void createRecruiter(String Username, String Password){
+	int createRecruiter(String Username, String Password){
 		try{
 			String query = "Select max(recID) from RecDetails;";
 					
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			ResultSet rs = connect.query(query);
 			
 			int recID = rs.getInt("recID");
 			recID ++;
@@ -61,11 +61,12 @@ public class RecDetails {
 					Password +
 					"\");";
 					
-			connect.execute(query);
+			int status = connect.update(query);
 			
+			return status;
 		}
 		catch(SQLException e){
-			
+			return 0;
 		}
 	}
 	
