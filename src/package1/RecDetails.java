@@ -14,7 +14,7 @@ public class RecDetails {
 	String position;
 	String location;
 	
-	int getRecruiterID(String Username, String Password) {
+	int getRecruiter(String Username, String Password) {
 		try {
 			String query = "Select * from RecDetails where username=\"" +
 					Username + 
@@ -43,14 +43,14 @@ public class RecDetails {
 		}
 	}
 
-	int createRecruiter(String Username, String Password){
+	int addRecruiter(String Username, String Password){
 		try{
 			String query = "Select max(recID) from RecDetails;";
 					
 			connection connect = new connection();
 			ResultSet rs = connect.query(query);
-			
-			int recID = rs.getInt("recID");
+			rs.next();
+			int recID = rs.getInt(1);
 			recID ++;
 			
 			query = "insert into RecDetails values(" + 
@@ -61,9 +61,9 @@ public class RecDetails {
 					Password +
 					"\");";
 					
-			int status = connect.update(query);
+			connect.update(query);
 			
-			return status;
+			return recID;
 		}
 		catch(SQLException e){
 			return 0;

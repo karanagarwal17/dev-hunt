@@ -35,12 +35,12 @@ public class Login {
 	
 	int addUser(String username, String password){
 		try{
-			String query = "Select max(uID) from Login;";
+			String query = "Select max(uID) from Login";
 					
 			connection connect = new connection();
 			ResultSet rs = connect.query(query);
-			
-			int uID = rs.getInt("uID");
+			rs.next();
+			int uID = rs.getInt(1);
 			uID ++;
 			
 			query = "insert into Login values(" + 
@@ -51,12 +51,11 @@ public class Login {
 					password +
 					"\");";
 					
-			int status = connect.update(query);
-			return status;
+			connect.update(query);
+			return uID;
 		}
 		catch(SQLException e){
 			return 0;
 		}
 	}
-	
 }

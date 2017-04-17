@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="package1.*, java.sql.*" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -9,9 +11,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<%  
-	 
-	 
-	 
+	 if(session.getAttribute("uID") == null){
+		 response.sendRedirect("login.jsp");
+	 }
+	 int uID = Integer.parseInt(session.getAttribute("uID"));	 
 	%>
 
 	<title>DevHunt Login</title>

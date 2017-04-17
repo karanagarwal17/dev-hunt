@@ -92,19 +92,18 @@
 								    
 									<div class="radio">
 										<label>
-											<input type="radio" name="optionsRadio" value="recruiter">
+											<input type="radio" name="userType" value="recruiter">
 											Recruiter
 										</label>
 										<label>
-											<input type="radio" name="optionsRadio" value="developer">
+											<input type="radio" name="userType" value="developer">
 											Developer
 										</label>
-									</div> 
+									</div>
 									
 								</div>
 								<div class="footer text-center">
-                                    <button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit" value="login">Login</button>
-                                    <button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-register" value="register">Register</button>
+                                    <button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-register" value="register">Submit</button>
 								</div>
 							</form>
 						</div>

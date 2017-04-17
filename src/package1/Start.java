@@ -132,13 +132,12 @@ public static void main(String[] args) {
 		connect.update(sql10);
 
 		String sql11 = "CREATE TABLE Login " +
-		               "(username varchar(50), " +
-		               " password varchar(10), " +
-		               " uID int)";
+		               "(uID int,username varchar(50), " +
+		               " password varchar(50))";
 		connect.update(sql11);
 
 		String sql12 = "CREATE TABLE RecDetails " +
-		               "(recID integer not null, " +
+		               "(recID integer not null, username varchar(50),password varchar(50)," +
 		               " name varchar(25), "+
 		               " companyName varchar(50), " +
 		               " field varchar(25), " +
