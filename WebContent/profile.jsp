@@ -160,6 +160,12 @@
 				                            </a>
 				                        </li>
 				                        <li>
+				                            <a href="#certifications" role="tab" data-toggle="tab">
+												<i class="material-icons">list</i>
+				                                Certifications
+				                            </a>
+				                        </li>
+				                        <li>
 				                            <a href="#workex" role="tab" data-toggle="tab">
 												<i class="material-icons">business</i>
 				                                Work Experience
@@ -190,93 +196,113 @@
 												</div>
 				                            </div>
 				                        </div>
+				                        <div class="tab-pane text-center" id="certifications">
+				                            	<div class="row">
+												<div class="col-md-4 skills">
+													<br>
+													<h4 class="efficiency"><strong>Name:</strong></h4>
+													<ul>
+							                       	<li>HTML5</span></li>
+							                       	</ul>
+												</div>
+												<div class="col-md-4 skills">
+													<br>
+													<h4 class="efficiency""><strong>Organization:</strong></h4>
+													<p class="efficiency">Coursera</p>
+												</div>
+												<div class="col-md-4 skills">
+													<br>
+													<h4 class="efficiency""><strong>IssuedOn:</strong></h4>
+													<p class="efficiency" id="issuedate">Years:</p>  	
+							                   	</div>
+											</div>
+											<div class="row">
+												<div class="col-md-4 skills">
+													<br>
+													<ul>
+							                       	<li>HTML5</span></li>
+							                       	</ul>
+												</div>
+												<div class="col-md-4 skills">
+													<br>
+													<p class="efficiency">70%</p>
+												</div>
+												<div class="col-md-4 skills">
+													<br>
+													<p class="efficiency" id="years">Years:</p>		
+							                   	</div>
+											</div>
+				                        </div>
 				                        <div class="tab-pane text-center" id="skills">
 											<div class="row">
-												<div class="col-md-3 skills">
+												<div class="col-md-4 skills">
 													<br>
-													<h4 style="text-align: center;"><strong>Skills:</strong></h4>
+													<h4 class="efficiency"><strong>Skills:</strong></h4>
 													<ul>
-							                       	<li>HTML5</span></li><br><br>
-							                        <li>CSS3</li>
-							                        </ul>
+							                       	<li>HTML5</span></li>
+							                       	</ul>
 												</div>
-												<div class="col-md-3 skills">
+												<div class="col-md-4 skills">
 													<br>
-													<h4 style="text-align: center;"><strong>Efficiency:</strong></h4>
-													<ul>
-							                       	<li>70%</li><br><br>
-							                        <li>60%</li>
-							                        </ul>
+													<h4 class="efficiency"><strong>Efficiency:</strong></h4>
+													<p class="efficiency">70%</p>
 												</div>
-												<div class="col-md-3 skills">
+												<div class="col-md-4 skills">
 													<br>
-													<h4 style="text-align: center;"><strong>Experience:</strong></h4>
-													<ul>
-							                       	<li>Years: 2</li><br><br>
-							                        <li>Projects: 5</li>
-							                        </ul>
-												</div>
-												<div class="col-md-3 skills">
+													<h4 class="efficiency""><strong>Experience:</strong></h4>
+													<p class="efficiency" id="years">Years:</p>
+							                       	<p class="efficiency" id="projects">Projects:</p>
+							                   	</div>
+											</div>
+											<div class="row">
+												<div class="col-md-4 skills">
 													<br>
-													<h4 style="text-align: center;"><strong>Certifications:</strong></h4>
 													<ul>
-							                       	<li>HTML5<ul>
-							                       	<li>Organization: Coursera</li>
-							                        <li>Issuedon: 29/9/2049</li>
-							                        </ul>
-							                        <li>CSS3
-							                        <ul>
-							                       	<li>Organization: Coursera</li>
-							                        <li>Issuedon: 29/9/2049</li>
-							                        </ul></li>
-							                        </ul>
+							                       	<li>HTML5</span></li>
+							                       	</ul>
 												</div>
-
+												<div class="col-md-4 skills">
+													<br>
+													<p class="efficiency">70%</p>
+												</div>
+												<div class="col-md-4 skills">
+													<br>
+													<p class="efficiency" id="years">Years:</p>
+							                       	<p class="efficiency" id="projects">Projects:</p>
+							                   	</div>
 											</div>
 				                        </div>
 										<div class="tab-pane text-center" id="workex">
 											<div class="row">
+											<br>
 												<div class="col-md-4">
-												<h4><strong>Internships:</strong></h4>
-												<ol id="internships">
-							                       	<li>One<ul style="text-align: left;">
+												<h4 class="efficiency"><strong>Internships:</strong></h4>
+													<ul style="text-align: left;">
 							                       	<li id="company">Company</li>
 							                       	<li id="start">Started</li>
 							                       	<li id="enddate">Ended</li>
 							                       	<li id="stipend">Stipend</li>
 							                       	</ul>
-							                       	</li>
-							                       	<li>Two</li>
-							                       	
-							                    </ol>
 												</div>
 												<div class="col-md-4">
-												<h4><strong>Research:</strong></h4>	
-												<ol id="research">
-							                       	<li>One<ul style="text-align: left;">
+												<h4 class="efficiency"><strong>Research:</strong></h4>	
+													<ul style="text-align: left;">
 							                       	<li id="rtopic">Topic</li>
 							                       	<li id="rfield">Field</li>
 							                       	<li id="rpublishdate">Published</li>
 							                       	<li id="rpublishedin">PublishedIn</li>
 							                       	<li id="rsupervisedby">SupervisedBy</li>
-							                       	</ul></li>
-							                       	<li></li>
-							                       
-							                    </ol>
+							                       	</ul>
 												</div>
 												<div class="col-md-4">
-												<h4><strong>Projects:</strong></h4>
-												<ol id="projects">
-							                       	<li>One<ul style="text-align: left;">
+												<h4 class="efficiency"><strong>Projects:</strong></h4>
+												<ul style="text-align: left;">
 							                       	<li id="ptopic">Topic</li>
 							                       	<li id="pfield">Field</li>
 							                       	<li id="pstartdate">Started</li>
 							                       	<li id="penddate">Ended</li>
 							                       	<li id="psupervisedby">SupervisedBy</li>
-							                       	</ul></li>
-							                       	<li></li>
-							                       	
-							                    </ol>	
+							                    </ul>						                       	
 												</div>
 											</div>
 				                        </div>
