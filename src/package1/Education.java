@@ -12,8 +12,8 @@ public class Education {
 	String collegeName;
 	int currentSem;
 	String CGPA;
-	
-	ResultSet getEducation(int uID){
+
+	public ResultSet getEducation(int uID){
 	//	try {
 			String query = "Select * from Education where uID=" +
 					uID +
@@ -29,7 +29,7 @@ public class Education {
 	//	}
 	}
 
-	int addEducation(int uID, int tenthpercent, int twelfthpercent, String board, String mailId, String phoneNumber, String nationality, String fieldOfInterest, String internJob){
+	public int addEducation(int uID, int tenthpercent, int twelfthpercent, String board, String mailId, String phoneNumber, String nationality, String fieldOfInterest, String internJob){
 	//	try {
 			String query = "Insert into Education values (" +
 						uID +
@@ -48,7 +48,7 @@ public class Education {
 						",\"" +
 						CGPA +
 						"\");";
-						
+
 
 			connection connect = new connection();
 			int status = connect.update(query);

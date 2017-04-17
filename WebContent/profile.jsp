@@ -14,7 +14,7 @@
 	 if(session.getAttribute("uID") == null){
 		 response.sendRedirect("login.jsp");
 	 }
-	 int uID = Integer.parseInt(session.getAttribute("uID"));	 
+	int uID = Integer.parseInt(session.getAttribute("uID").toString());
 	%>
 
 	<title>DevHunt Login</title>
@@ -81,6 +81,52 @@
   background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */"></div>
 
+		<%
+		
+		package1.Details d = new Details();
+		ResultSet rs = d.getDetails(uID);
+		
+		package1.Education e = new Education();
+		ResultSet rs1 = e.getEducation(uID);
+		
+		String name = "";
+		String gender = "";
+		String mailId = "";
+		String phoneNumber = "";
+		String nationality = "";
+		String fieldOfInterest = "";
+		String internJob = "";
+		int age = 0;
+		int tenthpercent = 0;
+		int twelfthpercent = 0;
+		String board = "";
+		int yearOfPassing = 0;
+		String collegeName = "";
+		int currentSem = 0;
+		String CGPA = "";
+		
+		if(rs.next() != false){
+		name = rs.getString("name");
+		gender = rs.getString("gender");
+		age = rs.getInt("age");
+		mailId = rs.getString("mailId");
+		phoneNumber = rs.getString("phoneNumber");
+		nationality = rs.getString("nationality");
+		fieldOfInterest = rs.getString("fieldOfInterest");
+		internJob = rs.getString("internJob");
+		}
+		
+		if(rs1.next() != false){
+			tenthpercent = rs1.getInt("tenthpercent");
+			twelfthpercent = rs1.getInt("twelfthpercent");
+			board = rs1.getString("board");
+			yearOfPassing = rs1.getInt("yearOfPassing");
+			collegeName = rs1.getString("collegeName");
+			currentSem = rs1.getInt("currentSem");
+			CGPA = rs1.getString("CGPA");
+		}
+		
+		%>
 		<div class="main main-raised">
 			<div class="profile-content">
 	            <div class="container">
@@ -90,14 +136,11 @@
 	                            <img src="assets/img/avatar.jpg" alt="Circle Image" class="img-circle img-responsive img-raised">
 	                        </div>
 	                        <div class="name">
-	                            <h3 class="title">Ayush Singh</h3>
+	                            <h3 class="title"><%=name %></h3>
 								<h6>Designer</h6>
 	                        </div>
 	                    </div>
 	                </div>
-	                <div class="description text-center">
-                        <p>A designer and a web-developer. I've been developing websites for about a year now, and have a fair amount of experience regarding the existing web technologies. I am familiar and up to date with the current design standards and frameworks.</p>
-                    </div>
 
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
@@ -129,22 +172,21 @@
 				                            <div class="row">
 												<div class="col-md-6 details">
 												<br>
-												 <p id="gender"><strong>Gender: </strong>Male</p>
-												 <p id="age"><strong>Age:	</strong>20</p>
-												 <p id="dob"><strong>Dob: 	</strong>29/01/1998</p>
-												 <p id="nationality"><strong>Nationality: </strong>Indian</p>
-												 <p id="email"><strong>E-mail: </strong>frost.ayush@gmail.com</p>
-												 <p id="phone"><strong>Phone: </strong>7073205022</p>
+												 <p id="gender"><strong>Gender: </strong><%=gender %></p>
+												 <p id="age"><strong>Age:	</strong><%=age %></p>
+												 <p id="nationality"><strong>Nationality: </strong><%=nationality %></p>
+												 <p id="email"><strong>E-mail: </strong><%=mailId %></p>
+												 <p id="phone"><strong>Phone: </strong><%=phoneNumber %></p>
 												</div>
 
 												<div class="col-md-6 education">
 												<br>
-												 <p id="board"><strong>Board: </strong>CBSE</p>
-												 <p id="12per"><strong>12th Percentage:	</strong>92%</p>
-												 <p id="10per"><strong>10th Percentage 	</strong>95%</p>
-												 <p id="yearop"><strong>Year of Passing: </strong>2015</p>
-												 <p id="college"><strong>College: </strong>LNMIIT</p>
-												 <p id="cgpa"><strong>CGPA: </strong>7.45</p>
+												 <p id="board"><strong>Board: </strong><%=board %></p>
+												 <p id="12per"><strong>12th Percentage:	</strong><%=twelfthpercent %>%</p>
+												 <p id="10per"><strong>10th Percentage 	</strong><%=tenthpercent %>%</p>
+												 <p id="yearop"><strong>Year of Passing: </strong><%=yearOfPassing %></p>
+												 <p id="college"><strong>College: </strong><%=collegeName %></p>
+												 <p id="cgpa"><strong>CGPA: </strong><%=CGPA %></p>
 												</div>
 				                            </div>
 				                        </div>

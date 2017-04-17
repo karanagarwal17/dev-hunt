@@ -14,7 +14,7 @@ public class Details {
 	String fieldOfInterest;
 	String internJob;
 
-	ResultSet getDetails(int uID){
+	public ResultSet getDetails(int uID){
 		//try {
 			String query = "Select * from Details where uID=" +
 					uID +
