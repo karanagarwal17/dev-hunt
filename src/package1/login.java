@@ -16,7 +16,7 @@ public class login {
 					password + 
 					"\"";
 			connection connect = new connection();	
-			ResultSet rs = connect.execute(query);
+			ResultSet rs = connect.query(query);
 			
 			int i = 0;
 			while (rs.next())
@@ -33,12 +33,12 @@ public class login {
 		}
 	}
 	
-	void addUser(String username, String password){
+	int addUser(String username, String password){
 		try{
 			String query = "Select max(uID) from Login;";
 					
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			ResultSet rs = connect.query(query);
 			
 			int uID = rs.getInt("uID");
 			uID ++;
@@ -51,11 +51,11 @@ public class login {
 					password +
 					"\");";
 					
-			connect.execute(query);
-			
+			int status = connect.update(query);
+			return status;
 		}
 		catch(SQLException e){
-			
+			return 0;
 		}
 	}
 	

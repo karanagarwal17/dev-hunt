@@ -15,23 +15,23 @@ public class Details {
 	String internJob;
 
 	ResultSet getDetails(int uID){
-		try {
+		//try {
 			String query = "Select * from Details where uID=" +
 					uID +
 					";";
 
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			ResultSet rs = connect.query(query);
 
 			return rs;
-		}
-		catch(SQLException e){
-			return null;
-		}
+		//}
+		//catch(SQLException e){
+		//	return null;
+		//}
 	}
 
-	ResultSet addDetails(int uID, String name, String gender, String age, String mailId, String phoneNumber, String nationality, String fieldOfInterest, String internJob){
-		try {
+	int addDetails(int uID, String name, String gender, String age, String mailId, String phoneNumber, String nationality, String fieldOfInterest, String internJob){
+		//try {
 			String query = "Insert into Details values (" +
 						uID +
 						",\"" +
@@ -54,13 +54,13 @@ public class Details {
 						
 
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			int status = connect.update(query);
 
-			return null;
-		}
-		catch(SQLException e){
-			return null;
-		}
+			return status;
+		//}
+		//catch(SQLException e){
+		//	return null;
+		//}
 	}
 
 }

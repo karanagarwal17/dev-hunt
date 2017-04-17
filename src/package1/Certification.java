@@ -11,22 +11,22 @@ public class Certification {
 	String courseName;
 	
 	ResultSet getCertificate(int uID){
-		try {
+		//try {
 			String query = "Select * from Certification where uID=" + 
 					uID +
 					";";
 			connection connect = new connection();	
-			ResultSet rs = connect.execute(query);
+			ResultSet rs = connect.query(query);
 			
 			return rs;
-		}
-		catch(SQLException e){
-			return null;
-		}
+		//}
+		//catch(SQLException e){
+		//	return null;
+		//}
 	}
 	
-	ResultSet addCertificate(int uID, String skillName, String issueDate, String organisation, String courseName){
-		try {
+	int addCertificate(int uID, String skillName, String issueDate, String organisation, String courseName){
+		//try {
 			String query = "Insert into Certification values (" +
 						uID + 
 						",\"" +
@@ -41,12 +41,12 @@ public class Certification {
 					
 			
 			connection connect = new connection();	
-			ResultSet rs = connect.execute(query);
+			int status= connect.update(query);
 			
-			return rs;
-		}
-		catch(SQLException e){
-			return null;
-		}
+			return status;
+		//}
+		//catch(SQLException e){
+		//	return null;
+		//}
 	}
 }

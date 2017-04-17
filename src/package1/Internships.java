@@ -1,7 +1,6 @@
 package package1;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Internships {
 
@@ -12,23 +11,23 @@ public class Internships {
 	int stipend;
 	
 	ResultSet getInternships(int uID){
-		try {
+	//	try {
 			String query = "Select * from Internships where uID=" +
 					uID +
 					";";
 
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			ResultSet rs = connect.query(query);
 
 			return rs;
-		}
-		catch(SQLException e){
-			return null;
-		}
+	//	}
+	//	catch(SQLException e){
+	//		return null;
+	//	}
 	}
 
-	ResultSet addInternships(int uID, String companyName, String startDate, String endDate, int stipend){
-		try {
+	int addInternships(int uID, String companyName, String startDate, String endDate, int stipend){
+	//	try {
 			String query = "Insert into Interships values (" +
 						uID +
 						",\"" +
@@ -43,13 +42,13 @@ public class Internships {
 						
 
 			connection connect = new connection();
-			ResultSet rs = connect.execute(query);
+			int status = connect.update(query);
 
-			return null;
-		}
-		catch(SQLException e){
-			return null;
-		}
+			return status;
+	//	}
+	//	catch(SQLException e){
+	//		return null;
+	//	}
 	}
 	
 }
