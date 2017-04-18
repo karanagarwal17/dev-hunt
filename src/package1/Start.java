@@ -172,6 +172,7 @@ public static void main(String[] args) {
 		Login u=new Login();
 		RecDetails rd=new RecDetails();
 		RecLogin rc = new RecLogin();
+		Queries q = new Queries();
 	    e.addEducation(1,9.8,9.0,"CBSE",2015,"LNMIIT",3,8.5);
 		e.addEducation(2,8.9,9.4,"ICSE",2014,"IIT_DELHI",5,8.9);
 		e.addEducation(3,10.0,8.9,"CBSE",2016,"IIT_BOMBAY",2,7.9);
@@ -207,6 +208,28 @@ public static void main(String[] args) {
 		rc.addRecruiter("karan", "lnm89");
 		e.updateEducation(1, 9.8, 9.0, "CBSE", 2015,"LNMIIT", 5, 8.7);
 		d.updateDetails(2, "Raj", "Male", 20, "rajagarwal@gmail.com", "9460337890", "Indian", "Android Development", "Job");
+		s.addSkillSet(3, "Probability",1,30);
+		s.addSkillSet(3, "Statistics",2,45);
+		s.addSkillSet(4, "HTML",1,50);
+		s.addSkillSet(4, "CSS",4,80);
+        c.addCertificate(3, "Probability", "17 March 2016", "Udacity", "Probability Nanodegree");
+ 		c.addCertificate(3, "Statistics", "11 April 2017", "edx", "Data Science 15");
+		c.addCertificate(4, "HTML", "21 May 2014", "edx", "Minidegree in HTML");
+		c.addCertificate(4, "CSS", "11 Sept 2017", "Coursera", "CSS for Fun Certificate");
+		i.addInternships(1, "Technology For Us", "21 Sept 2016","23 Dec 2016", 7000);
+		i.addInternships(1, "Web Developer Treasure", "3 May 2015","23 July 2015", 15000 );
+		i.addInternships(3, "Data Scientist labs", "23 May 2014 ","15 July 2014", 6000);
+		p.addProjects(2, "Java Based Android App", "Android development", "Prof. Jay", "2 May 2016", "23 July 2016");
+		p.addProjects(3, "Data Prediction For Business", "Data Prediction", "Dr. Ayush Agarwal", "1 June 2016", "23 August 2016");
+		u.addUser("gita1", "lnm");
+		u.addUser("rohan7", "lnmiit");
+		rc.addRecruiter("rk123", "jklnm");
+		int a[] = q.runQuery(1, 1, 1, 1, null);
+		int x= 0;
+		while(a[x] != 0){
+			System.out.println(a[x]);
+			x++;
+		}
 	}
 	catch(Exception se) {
 		se.printStackTrace();

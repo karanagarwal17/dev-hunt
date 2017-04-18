@@ -13,6 +13,7 @@ public class Servlet_logout extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		session.removeAttribute("uID");
+		session.removeAttribute("recID");
 		session.invalidate();
 		
 		response.sendRedirect("login.jsp");

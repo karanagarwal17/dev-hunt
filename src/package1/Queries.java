@@ -4,123 +4,166 @@ import java.sql.*;
 
 public class Queries {
 	
-	ResultSet merge(ResultSet rs1, ResultSet rs2){
-		try{
-		ResultSet merged = null;
-		
-		rs1.first();
-		rs2.first();
-		
-		while(true){
-			if(rs1.getInt(1) == rs2.getInt(1)){
-				merged = rs1;
-				if(rs1.next() == false){
-					break;
-				}
-				if(rs2.next() == false){
-					break;
-				}
+	public int[] merge(int main[], int a[]){
+		int i = 0;
+		int j = 0;
+		int k = 0;
+		int merged[] = new int[100];
+		while(main[i] != 0 && a[j] != 0){
+			if(main[i] == a[j]){
+				merged[k] = main[i];
+				k++;
+				i++;
+				j++;
 			}
-			else if(rs1.getInt(1) < rs2.getInt(1)){
-				if(rs1.next() == false){
-					break;
-				}
+			else if(main[i] < a[j]){
+				i++;
 			}
 			else{
-				if(rs2.next() == false){
-					break;
-				}
+				j++;
 			}
 		}
 		
 		return merged;
+	}
+
+	public int[] runQuery(int certificate, int intern, int project, int research, String skill){
+		try{
+			int main[] = new int[100];
+			connection connect = new connection();
+			
+			
+			if(certificate != 0){
+				String query = "Select distinct uID from Certification order by uID;";
+				ResultSet rs = connect.query(query);
+				
+				int a[] = new int[100];
+				int i = 0;
+				if(rs == null){
+					return null;
+				}
+				while(rs.next()){
+					a[i] = rs.getInt(1);
+					i++;
+				}
+				if(main[0] == 0){
+					int k = 0;
+					while(a[k] != 0){
+						main[k] = a[k];
+						k++;
+					}
+				}
+				else{
+					main = merge(main,a);
+				}
+			}
+			
+			if(intern != 0){
+				String query = "Select distinct uID from Internships order by uID;";
+				ResultSet rs = connect.query(query);
+				
+				int a[] = new int[100];
+				int i = 0;
+				if(rs == null){
+					return null;
+				}
+				while(rs.next()){
+					a[i] = rs.getInt(1);
+					i++;
+				}
+				if(main[0] == 0){
+					int k = 0;
+					while(a[k] != 0){
+						main[k] = a[k];
+						k++;
+					}
+				}
+				else{
+					main = merge(main,a);
+				}
+			}
+			
+			if(project != 0){
+				String query = "Select distinct uID from Projects order by uID;";
+				ResultSet rs = connect.query(query);
+				
+				int a[] = new int[100];
+				int i = 0;
+				if(rs == null){
+					return null;
+				}
+				while(rs.next()){
+					a[i] = rs.getInt(1);
+					i++;
+				}
+				if(main[0] == 0){
+					int k = 0;
+					while(a[k] != 0){
+						main[k] = a[k];
+						k++;
+					}
+				}
+				else{
+					main = merge(main,a);
+				}
+			}
+			
+			if(research != 0){
+				String query = "Select distinct uID from Research order by uID;";
+				ResultSet rs = connect.query(query);
+				
+				int a[] = new int[100];
+				int i = 0;
+				if(rs == null){
+					return null;
+				}
+				while(rs.next()){
+					a[i] = rs.getInt(1);
+					i++;
+				}
+				if(main[0] == 0){
+					int k = 0;
+					while(a[k] != 0){
+						main[k] = a[k];
+						k++;
+					}
+				}
+				else{
+					main = merge(main,a);
+				}
+			}
+			
+			if(skill != null){
+				String query = "Select distinct uID from SkillSet where skillName=\"" +
+								skill +
+								"\" order by uID;";
+				ResultSet rs = connect.query(query);
+				
+				int a[] = new int[100];
+				int i = 0;
+				if(rs == null){
+					return null;
+				}
+				while(rs.next()){
+					a[i] = rs.getInt(1);
+					i++;
+				}
+				if(main[0] == 0){
+					int k = 0;
+					while(a[k] != 0){
+						main[k] = a[k];
+						k++;
+					}
+				}
+				else{
+					main = merge(main,a);
+				}
+			}
+			return main;
 		}
 		catch(SQLException se){
 			se.printStackTrace();
 			return null;
 		}
 	}
-
-	ResultSet runQuery(int uID, String certificate, int intern, int project, int research, String skill){
-		
-		ResultSet main = null;
-		connection connect = new connection();
-		
-		
-		if(certificate != null){
-			String query = "Select distinct uID from Certification where skillName=\"" +
-							certificate +
-							"\" order by uID;";
-			ResultSet rs = connect.query(query);
-			
-			if(rs == null){
-				return null;
-			}
-			
-			if(main == null){
-				main = rs;
-			}
-		}
-		
-		if(intern != 0){
-			String query = "Select distinct uID from Internships order by uID;";
-			ResultSet rs = connect.query(query);
-			if(rs == null){
-				return null;
-			}
-			if(main == null){
-				main = rs;
-			}
-			else{
-				main = merge(main,rs);
-			}
-		}
-		
-		if(project != 0){
-			String query = "Select distinct uID from ProjectID order by uID;";
-			ResultSet rs = connect.query(query);
-			if(rs == null){
-				return null;
-			}
-			if(main == null){
-				main = rs;
-			}
-			else{
-				main = merge(main,rs);
-			}
-		}
-		
-		if(research != 0){
-			String query = "Select distinct uID from ResearchID order by uID;";
-			ResultSet rs = connect.query(query);
-			if(rs == null){
-				return null;
-			}
-			if(main == null){
-				main = rs;
-			}
-			else{
-				main = merge(main,rs);
-			}
-		}
-		
-		if(skill != null){
-			String query = "Select distinct uID from SkillSet where skillName=\"" +
-							skill +
-							"\" order by uID;";
-			ResultSet rs = connect.query(query);
-			if(rs == null){
-				return null;
-			}
-			if(main == null){
-				main = rs;
-			}
-			else{
-				main = merge(main,rs);
-			}
-		}
-		
-		return main;
-	}
-	
 }

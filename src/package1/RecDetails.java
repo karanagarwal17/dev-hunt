@@ -11,7 +11,7 @@ public class RecDetails {
 	String position;
 	String location;
 	
-	ResultSet getRecDetails(int recID){
+	public ResultSet getRecDetails(int recID){
 		//try {
 			String query = "Select * from RecDetails where recID=" +
 					recID +
@@ -27,7 +27,7 @@ public class RecDetails {
 		//}
 	}
 
-	int addRecDetails(int recID, String name, String companyName,String field, String position, String location){
+	public int addRecDetails(int recID, String name, String companyName,String field, String position, String location){
 		//try {
 			String query = "Insert into RecDetails values (" +
 						recID +

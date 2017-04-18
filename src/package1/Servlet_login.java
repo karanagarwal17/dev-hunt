@@ -22,16 +22,16 @@ public class Servlet_login extends HttpServlet {
 		if(usertype.equals("recruiter")){
 			
 			RecLogin r = new RecLogin();
-			int rID = r.getRecruiter(username, password);
+			int recID = r.getRecruiter(username, password);
 			
-			if(rID == 0){
-				rID = r.addRecruiter(username,password);
+			if(recID == 0){
+				recID = r.addRecruiter(username,password);
 			}
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("rID", rID);
+			session.setAttribute("recID", recID);
 			
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("recruiter.jsp");
 		}
 		else if(usertype.equals("developer")){
 			
