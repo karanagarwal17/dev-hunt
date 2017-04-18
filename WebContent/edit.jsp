@@ -133,14 +133,16 @@
       				</nav>
 
       				<section id="about">
-      				<form class="form" method="" action="">
+      				<form class="form" method="get" action="Servlet_updatedetails">
       				<p>General Information:</p>     				
-			        <p class="setting2" id="lname"><span>Name </span><input type="text" value='<%=name %>' class="form-control" id="username" placeholder="Name..."></p>
-        	        <p class="setting2" id="lage"><span>Age </span><input type="text" value='<%=age %>' class="form-control" id="age" placeholder="Age..."></p>
-			        <p class="setting2" id="lgender"><span>Gender </span><input type="text" value='<%=gender %>' class="form-control" id="gender" placeholder="Gender..."></p>
-			        <p class="setting2" id="lnationality"><span>Nationality </span><input type="text" value='<%=nationality %>' class="form-control" id="nationality" placeholder="Nationality..."></p>
-			        <p class="setting2" id="lemail"><span>E-mail </span><input type="text" value='<%=mailId %>' class="form-control" id="email" placeholder="E-mail..."></p>
-			        <p class="setting2" id="lphone"><span>Phone </span><input type="text" value='<%=phoneNumber %>' class="form-control" id="phone" placeholder="Phone..."></p>
+			        <p class="setting2" id="lname"><span>Name </span><input type="text" name="name" value='<%=name %>' class="form-control" id="username" placeholder="Name..."></p>
+        	        <p class="setting2" id="lage"><span>Age </span><input type="text" name="age" value='<%=age %>' class="form-control" id="age" placeholder="Age..."></p>
+			        <p class="setting2" id="lgender"><span>Gender </span><input type="text" name="gender" value='<%=gender %>' class="form-control" id="gender" placeholder="Gender..."></p>
+			        <p class="setting2" id="lnationality"><span>Nationality </span><input type="text" name="nationality" value='<%=nationality %>' class="form-control" id="nationality" placeholder="Nationality..."></p>
+			        <p class="setting2" id="lemail"><span>E-mail </span><input type="text" name="mailId" value='<%=mailId %>' class="form-control" id="email" placeholder="E-mail..."></p>
+			        <p class="setting2" id="lphone"><span>Phone </span><input type="text" name="phoneNumber" value='<%=phoneNumber %>' class="form-control" id="phone" placeholder="Phone..."></p>
+			        <p class="setting2" id="lphone"><span>Field of Interest </span><input type="text" name="fieldOfInterest" value='<%=fieldOfInterest %>' class="form-control" id="phone" placeholder="Field of Interest..."></p>
+			        <p class="setting2" id="lphone"><span>Intern / Job </span><input type="text" name="internJob" value='<%=internJob %>' class="form-control" id="phone" placeholder="Intern or Job..."></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			        </section>
