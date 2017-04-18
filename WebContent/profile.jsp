@@ -10,11 +10,14 @@
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<%  
+	<%
+	int uID = 0;
 	 if(session.getAttribute("uID") == null){
 		 response.sendRedirect("login.jsp");
 	 }
-	int uID = Integer.parseInt(session.getAttribute("uID").toString());
+	 else{
+		uID = Integer.parseInt(session.getAttribute("uID").toString());
+	 }
 	%>
 
 	<title>DevHunt Login</title>
@@ -89,6 +92,21 @@
 		package1.Education e = new Education();
 		ResultSet rs1 = e.getEducation(uID);
 		
+		package1.SkillSet s = new SkillSet();
+		ResultSet skill = s.getSkillSet(uID);
+		
+		package1.Certification c = new Certification();
+		ResultSet certi = c.getCertificate(uID);
+		
+		package1.Internships i = new Internships();
+		ResultSet intern = i.getInternships(uID);
+		
+		package1.Projects p = new Projects();
+		ResultSet proj = p.getProjects(uID);
+		
+		package1.Research r = new Research();
+		ResultSet resr = r.getResearch(uID);
+		
 		String name = "";
 		String gender = "";
 		String mailId = "";
@@ -137,7 +155,7 @@
 	                        </div>
 	                        <div class="name">
 	                            <h3 class="title"><%=name %></h3>
-								<h6>Designer</h6>
+								<h6><%=fieldOfInterest %></h6>
 	                        </div>
 	                    </div>
 	                </div>
@@ -198,111 +216,162 @@
 				                        </div>
 				                        <div class="tab-pane text-center" id="certifications">
 				                            	<div class="row">
-												<div class="col-md-4 skills">
+												<div class="col-md-3 skills">
 													<br>
 													<h4 class="efficiency"><strong>Name:</strong></h4>
-													<ul>
-							                       	<li>HTML5</span></li>
-							                       	</ul>
 												</div>
-												<div class="col-md-4 skills">
+												<div class="col-md-3 skills">
 													<br>
 													<h4 class="efficiency""><strong>Organization:</strong></h4>
-													<p class="efficiency">Coursera</p>
 												</div>
-												<div class="col-md-4 skills">
+												<div class="col-md-3 skills">
 													<br>
-													<h4 class="efficiency""><strong>IssuedOn:</strong></h4>
-													<p class="efficiency" id="issuedate">Years:</p>  	
+													<h4 class="efficiency""><strong>Course Name:</strong></h4>
+							                   	</div>
+							        			<div class="col-md-3 skills">
+													<br>
+													<h4 class="efficiency""><strong>Issued On:</strong></h4>
 							                   	</div>
 											</div>
+											<%
+											while(certi.next()){
+												String skillName = certi.getString("skillName");
+												String issueDate = certi.getString("issueDate");
+												String organisation = certi.getString("organisation");
+												String courseName = certi.getString("courseName");
+											%>
 											<div class="row">
-												<div class="col-md-4 skills">
+												<div class="col-md-3 skills">
 													<br>
 													<ul>
-							                       	<li>HTML5</span></li>
+							                       	<li><%=skillName %></span></li>
 							                       	</ul>
 												</div>
-												<div class="col-md-4 skills">
+												<div class="col-md-3 skills">
 													<br>
-													<p class="efficiency">70%</p>
+													<p class="efficiency"><%=organisation %></p>
 												</div>
-												<div class="col-md-4 skills">
+												<div class="col-md-3 skills">
 													<br>
-													<p class="efficiency" id="years">Years:</p>		
+													<p class="efficiency" id="years"><%=courseName %></p>		
+							                   	</div>
+							                   	<div class="col-md-3 skills">
+													<br>
+													<p class="efficiency" id="years"><%=issueDate %></p>		
 							                   	</div>
 											</div>
+											<%
+											}
+											%>
 				                        </div>
 				                        <div class="tab-pane text-center" id="skills">
 											<div class="row">
 												<div class="col-md-4 skills">
 													<br>
 													<h4 class="efficiency"><strong>Skills:</strong></h4>
-													<ul>
-							                       	<li>HTML5</span></li>
-							                       	</ul>
 												</div>
 												<div class="col-md-4 skills">
 													<br>
 													<h4 class="efficiency"><strong>Efficiency:</strong></h4>
-													<p class="efficiency">70%</p>
 												</div>
 												<div class="col-md-4 skills">
 													<br>
 													<h4 class="efficiency""><strong>Experience:</strong></h4>
-													<p class="efficiency" id="years">Years:</p>
-							                       	<p class="efficiency" id="projects">Projects:</p>
 							                   	</div>
 											</div>
+											<%
+											while(skill.next()){
+												String skillName = skill.getString("skillName");
+												int efficiency = skill.getInt("percentEfficiency");
+												int years = skill.getInt("noOfYears");
+											
+											%>
 											<div class="row">
 												<div class="col-md-4 skills">
 													<br>
 													<ul>
-							                       	<li>HTML5</span></li>
+							                       	<li><%=skillName %></span></li>
 							                       	</ul>
 												</div>
 												<div class="col-md-4 skills">
 													<br>
-													<p class="efficiency">70%</p>
+													<p class="efficiency"><%=efficiency %>%</p>
 												</div>
 												<div class="col-md-4 skills">
 													<br>
-													<p class="efficiency" id="years">Years:</p>
-							                       	<p class="efficiency" id="projects">Projects:</p>
+													<p class="efficiency" id="years"><%=years %> &nbsp; Years</p>
 							                   	</div>
 											</div>
+											<%
+											}
+											%>
 				                        </div>
 										<div class="tab-pane text-center" id="workex">
 											<div class="row">
 											<br>
 												<div class="col-md-4">
 												<h4 class="efficiency"><strong>Internships:</strong></h4>
+													<%
+													while(intern.next()){
+														String companyName = intern.getString("companyName");
+														String startDate = intern.getString("startDate");
+														String endDate = intern.getString("endDate");
+														int stipend = intern.getInt("stipend");
+													%>
 													<ul style="text-align: left;">
-							                       	<li id="company">Company</li>
-							                       	<li id="start">Started</li>
-							                       	<li id="enddate">Ended</li>
-							                       	<li id="stipend">Stipend</li>
+							                       	<li id="company"><%=companyName %></li>
+							                       	<li id="start"><%=startDate %></li>
+							                       	<li id="enddate"><%=endDate %></li>
+							                       	<li id="stipend"><%=stipend %></li>
 							                       	</ul>
+							                       	<br >
+							                       	<%
+													}
+							                       	%>
 												</div>
 												<div class="col-md-4">
 												<h4 class="efficiency"><strong>Research:</strong></h4>	
+													<%
+													while(resr.next()){
+														String topic = resr.getString("topic");
+														String field = resr.getString("field");
+														String supervisedBy = resr.getString("supervisedBy");
+														String publishedIn = resr.getString("publishedIn");
+														String publishDate = resr.getString("publishDate");
+													%>
 													<ul style="text-align: left;">
-							                       	<li id="rtopic">Topic</li>
-							                       	<li id="rfield">Field</li>
-							                       	<li id="rpublishdate">Published</li>
-							                       	<li id="rpublishedin">PublishedIn</li>
-							                       	<li id="rsupervisedby">SupervisedBy</li>
+							                       	<li id="rtopic">Topic - <%=topic %></li>
+							                       	<li id="rfield">Field - <%=field %></li>
+							                       	<li id="rpublishdate">Published - <%=publishDate %></li>
+							                       	<li id="rpublishedin">Published In - <%=publishedIn %></li>
+							                       	<li id="rsupervisedby">Supervised By - <%=supervisedBy %></li>
 							                       	</ul>
+							                       	<br >
+							                       	<%
+													}
+							                       	%>
 												</div>
 												<div class="col-md-4">
 												<h4 class="efficiency"><strong>Projects:</strong></h4>
+												<%
+												while(proj.next()){
+													String topic = proj.getString("topic");
+													String field = proj.getString("field");
+													String supervisedBy = proj.getString("supervisedBy");
+													String startDate = proj.getString("startDate");
+													String endDate = proj.getString("endDate");
+												%>
 												<ul style="text-align: left;">
-							                       	<li id="ptopic">Topic</li>
-							                       	<li id="pfield">Field</li>
-							                       	<li id="pstartdate">Started</li>
-							                       	<li id="penddate">Ended</li>
-							                       	<li id="psupervisedby">SupervisedBy</li>
-							                    </ul>						                       	
+							                       	<li id="ptopic">Topic - <%=topic %></li>
+							                       	<li id="pfield">Field - <%=field %></li>
+							                       	<li id="pstartdate">Started - <%=startDate %></li>
+							                       	<li id="penddate">Ended - <%=endDate %></li>
+							                       	<li id="psupervisedby">Supervised By - <%=supervisedBy %></li>
+							                    </ul>
+							                    <br >
+							                    <%
+												}
+							                    %>						                       	
 												</div>
 											</div>
 				                        </div>
