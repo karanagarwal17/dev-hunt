@@ -10,7 +10,7 @@ public class Certification {
 	String organisation;
 	String courseName;
 	
-	ResultSet getCertificate(int uID){
+	public ResultSet getCertificate(int uID){
 		//try {
 			String query = "Select * from Certification where uID=" + 
 					uID +
@@ -25,7 +25,7 @@ public class Certification {
 		//}
 	}
 	
-	int addCertificate(int uID, String skillName, String issueDate, String organisation, String courseName){
+	public int addCertificate(int uID, String skillName, String issueDate, String organisation, String courseName){
 		//try {
 			String query = "Insert into Certification values (" +
 						uID + 

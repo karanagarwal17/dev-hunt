@@ -10,7 +10,7 @@ public class Internships {
 	String endDate;
 	int stipend;
 	
-	ResultSet getInternships(int uID){
+	public ResultSet getInternships(int uID){
 	//	try {
 			String query = "Select * from Internships where uID=" +
 					uID +
@@ -26,9 +26,9 @@ public class Internships {
 	//	}
 	}
 
-	int addInternships(int uID, String companyName, String startDate, String endDate, int stipend){
+	public int addInternships(int uID, String companyName, String startDate, String endDate, int stipend){
 	//	try {
-			String query = "Insert into Interships values (" +
+			String query = "Insert into Internships values (" +
 						uID +
 						",\"" +
 						companyName +

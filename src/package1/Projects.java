@@ -4,14 +4,14 @@ import java.sql.*;
 
 public class Projects {
 
-	int pID;
+	int uID;
 	String topic;
 	String field;
 	String supervisedBy;
 	String startDate;
 	String endDate;
 
-	ResultSet getProjects(int uID){
+	public ResultSet getProjects(int uID){
 	//	try {
 			String query = "Select * from Projects where uID=" +
 					uID +
@@ -27,7 +27,7 @@ public class Projects {
 	//	}
 	}
 
-	int addProjects(int uID,String topic, String field, String supervisedBy, String startDate, String endDate){
+	public int addProjects(int uID,String topic, String field, String supervisedBy, String startDate, String endDate){
 	//	try {
 			String query = "Insert into Projects values (" +
 						uID +

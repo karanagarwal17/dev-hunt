@@ -80,8 +80,8 @@
 		String fieldOfInterest = "";
 		String internJob = "";
 		int age = 0;
-		int tenthpercent = 0;
-		int twelfthpercent = 0;
+		String tenthpercent = "";
+		String twelfthpercent = "";
 		String board = "";
 		int yearOfPassing = 0;
 		String collegeName = "";
@@ -100,8 +100,8 @@
 		}
 		
 		if(rs1.next() != false){
-			tenthpercent = rs1.getInt("tenthpercent");
-			twelfthpercent = rs1.getInt("twelfthpercent");
+			tenthpercent = rs1.getString("tenthpercent");
+			twelfthpercent = rs1.getString("twelfthpercent");
 			board = rs1.getString("board");
 			yearOfPassing = rs1.getInt("yearOfPassing");
 			collegeName = rs1.getString("collegeName");
@@ -133,49 +133,52 @@
       				</nav>
 
       				<section id="about">
-      				<form class="form" method="" action="">
+      				<form class="form" method="get" action="Servlet_updatedetails">
       				<p>General Information:</p>     				
-			        <p class="setting2" id="lname"><span>Name </span><input type="text" value='<%=name %>' class="form-control" id="username" placeholder="Name..."></p>
-        	        <p class="setting2" id="lage"><span>Age </span><input type="text" value='<%=age %>' class="form-control" id="age" placeholder="Age..."></p>
-			        <p class="setting2" id="lgender"><span>Gender </span><input type="text" value='<%=gender %>' class="form-control" id="gender" placeholder="Gender..."></p>
-			        <p class="setting2" id="lnationality"><span>Nationality </span><input type="text" value='<%=nationality %>' class="form-control" id="nationality" placeholder="Nationality..."></p>
-			        <p class="setting2" id="lemail"><span>E-mail </span><input type="text" value='<%=mailId %>' class="form-control" id="email" placeholder="E-mail..."></p>
-			        <p class="setting2" id="lphone"><span>Phone </span><input type="text" value='<%=phoneNumber %>' class="form-control" id="phone" placeholder="Phone..."></p>
+			        <p class="setting2" id="lname"><span>Name </span><input type="text" name="name" value='<%=name %>' class="form-control" id="username" placeholder="Name..."></p>
+        	        <p class="setting2" id="lage"><span>Age </span><input type="text" name="age" value='<%=age %>' class="form-control" id="age" placeholder="Age..."></p>
+			        <p class="setting2" id="lgender"><span>Gender </span><input type="text" name="gender" value='<%=gender %>' class="form-control" id="gender" placeholder="Gender..."></p>
+			        <p class="setting2" id="lnationality"><span>Nationality </span><input type="text" name="nationality" value='<%=nationality %>' class="form-control" id="nationality" placeholder="Nationality..."></p>
+			        <p class="setting2" id="lemail"><span>E-mail </span><input type="text" name="mailId" value='<%=mailId %>' class="form-control" id="email" placeholder="E-mail..."></p>
+			        <p class="setting2" id="lphone"><span>Phone </span><input type="text" name="phoneNumber" value='<%=phoneNumber %>' class="form-control" id="phone" placeholder="Phone..."></p>
+			        <p class="setting2" id="lphone"><span>Field of Interest </span><input type="text" name="fieldOfInterest" value='<%=fieldOfInterest %>' class="form-control" id="phone" placeholder="Field of Interest..."></p>
+			        <p class="setting2" id="lphone"><span>Intern / Job </span><input type="text" name="internJob" value='<%=internJob %>' class="form-control" id="phone" placeholder="Intern or Job..."></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			        </section>
 		
 					<section id="education" class="hidden">
-			        <form class="form" method="" action="">
+			        <form class="form" method="get" action="Servlet_updateeducation">
       				<p>Education:</p>   				
-			        <p class="setting2" id="lboard"><span>Board </span><input type="text" value='<%=board %>' class="form-control" id="board" placeholder="Board..."></p>
-        	        <p class="setting2" id="l10per"><span>10th Percentage </span><input type="text" value='<%=tenthpercent %>' class="form-control" id="10per" placeholder="10th Percentage..."></p>
-			        <p class="setting2" id="l12per"><span>12th Percentage </span><input type="text" value='<%=twelfthpercent %>' class="form-control" id="12per" placeholder="12th Percentage..."></p>
-			        <p class="setting2" id="lyearop"><span>Year of Passing </span><input type="text" value='<%=yearOfPassing %>' class="form-control" id="yearop" placeholder="Year Of Passing..."></p>
-			        <p class="setting2" id="lcollege"><span>College </span><input type="text" value='<%=collegeName %>' class="form-control" id="college" placeholder="College Name..."></p>
-			        <p class="setting2" id="lcgpa"><span>CGPA </span><input type="text" value='<%=CGPA %>' class="form-control" id="cgpa" placeholder="CGPA..."></p>
+			        <p class="setting2" id="lboard"><span>Board </span><input type="text" name="board" value='<%=board %>' class="form-control" id="board" placeholder="Board..."></p>
+        	        <p class="setting2" id="l10per"><span>10th Percentage </span><input type="text" name="tenthpercent" value='<%=tenthpercent %>' class="form-control" id="10per" placeholder="10th Percentage..."></p>
+			        <p class="setting2" id="l12per"><span>12th Percentage </span><input type="text" name="twelfthpercent" value='<%=twelfthpercent %>' class="form-control" id="12per" placeholder="12th Percentage..."></p>
+			        <p class="setting2" id="lyearop"><span>Year of Passing </span><input type="text" name="yearOfPassing" value='<%=yearOfPassing %>' class="form-control" id="yearop" placeholder="Year Of Passing..."></p>
+			        <p class="setting2" id="lcollege"><span>College </span><input type="text" name="collegeName" value='<%=collegeName %>' class="form-control" id="college" placeholder="College Name..."></p>
+			        <p class="setting2" id="lcollege"><span>Current Sem </span><input type="text" name="currentSem" value='<%=currentSem %>' class="form-control" id="college" placeholder="Current Semester..."></p>
+			        <p class="setting2" id="lcgpa"><span>CGPA </span><input type="text" name="CGPA" value='<%=CGPA %>' class="form-control" id="cgpa" placeholder="CGPA..."></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			      </section>
 		
 					<section id="skills" class="hidden">
-					<form class="form" method="" action="">
+					<form class="form" method="get" action="Servlet_addskill">
 			        <p>Add new skill:</p>
-			        <p class="setting2"><span>Name</span><input type="text" value='' class="form-control" id="skname" placeholder="Skill Name"></p>
-			        <p class="setting2"><span>Efficiency:</span><input type="text" value='' class="form-control" id="skefficiency" placeholder="Percentage"></p>
-			        <p class="setting2"><span>Experience:</span><input type="text" value='' class="form-control" id="skyears" placeholder="Number of Years"></p>
+			        <p class="setting2"><span>Name</span><input type="text" name="skillName" value='' class="form-control" id="skname" placeholder="Skill Name"></p>
+			        <p class="setting2"><span>Efficiency:</span><input type="text" name="percentEfficiency" value='' class="form-control" id="skefficiency" placeholder="Percentage"></p>
+			        <p class="setting2"><span>Experience:</span><input type="text" name="noOfYears" value='' class="form-control" id="skyears" placeholder="Number of Years"></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			      	</section>
       
 			      	<section id="workex" class="hidden">
 			      	<p>Add work experience:</p>
-			        <form class="form" method="" action="">
+			        <form class="form" method="get" action="Servlet_addintern">
 			        <p class="setting2"><strong>INTERNSHIP</strong></p>
-			        <p class="setting2"><span>Company:</span><input type="text" value='' class="form-control" id="company" placeholder="Company Name"></p>
-			        <p class="setting2"><span>Started:</span><input class="datepicker form-control" type="text" value="" id="intstarted" placeholder="mm/dd/yyyy"/></p>
-			        <p class="setting2"><span>Ended:</span><input class="datepicker form-control" type="text" value="" id="intended" placeholder="mm/dd/yyyy"/></p>
-			        <p class="setting2"><span>Stipend:</span><input type="text" value='' class="form-control" id="stipend" placeholder="Stipend"></p>
+			        <p class="setting2"><span>Company:</span><input type="text" name="companyName" value='' class="form-control" id="company" placeholder="Company Name"></p>
+			        <p class="setting2"><span>Started:</span><input class="datepicker form-control" type="text" name="startDate" value="" id="intstarted" placeholder="mm/dd/yyyy"/></p>
+			        <p class="setting2"><span>Ended:</span><input class="datepicker form-control" type="text" name="endDate" value="" id="intended" placeholder="mm/dd/yyyy"/></p>
+			        <p class="setting2"><span>Stipend:</span><input type="text" value='' class="form-control" name="stipend" id="stipend" placeholder="Stipend"></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			        

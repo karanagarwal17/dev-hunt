@@ -4,14 +4,14 @@ import java.sql.*;
 
 public class Research {
 
-	int rID;
+	int uID;
 	String topic;
 	String field;
 	String supervisedBy;
 	String publishedIn;
 	String publishDate;
 
-	ResultSet getResearch(int uID){
+	public ResultSet getResearch(int uID){
 	//	try {
 			String query = "Select * from Research where uID=" +
 					uID +
@@ -27,10 +27,10 @@ public class Research {
 	//	}
 	}
 
-	int addResearch(int rID,String topic, String field, String supervisedBy, String publishedIn, String publishDate){
+	public int addResearch(int uID,String topic, String field, String supervisedBy, String publishedIn, String publishDate){
 	//	try {
 			String query = "Insert into Research values (" +
-						rID +
+						uID +
 						",\"" +
 						topic +
 						"\",\"" +

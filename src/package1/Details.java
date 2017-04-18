@@ -30,7 +30,7 @@ public class Details {
 		//}
 	}
 
-	int addDetails(int uID, String name, String gender, String age, String mailId, String phoneNumber, String nationality, String fieldOfInterest, String internJob){
+	public int addDetails(int uID, String name, String gender, int age, String mailId, String phoneNumber, String nationality, String fieldOfInterest, String internJob){
 		//try {
 			String query = "Insert into Details values (" +
 						uID +
@@ -57,10 +57,38 @@ public class Details {
 			int status = connect.update(query);
 
 			return status;
-		//}
-		//catch(SQLException e){
-		//	return null;
-		//}
-	}
+			
+	}		
+	
+	public int updateDetails(int uID, String name, String gender, int age, String mailId, String phoneNumber, String nationality, String fieldOfInterest, String internJob){
+		String query=" Update Details set name=\""+
+				name+
+				"\"," +
+				"gender=\"" +
+				gender +
+				"\",age=" +
+				age +
+				",mailId=\"" +
+				mailId +
+				"\",phoneNumber=\"" +
+				phoneNumber +
+				"\"," +
+				"nationality=\"" +
+				nationality +
+				"\",fieldOfInterest=\"" +
+				fieldOfInterest+
+				"\",internJob=\""+
+				internJob+
+				"\""+
+				"where uID=" +
+				uID+
+				";";
+		
 
+		connection connect = new connection();
+		int status = connect.update(query);
+
+		return status;	
+	}
+	
 }
