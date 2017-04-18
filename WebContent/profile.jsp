@@ -14,6 +14,7 @@
 	int uID = 0;
 	 if(session.getAttribute("uID") == null){
 		 response.sendRedirect("login.jsp");
+		 session.invalidate();
 	 }
 	 else{
 		uID = Integer.parseInt(session.getAttribute("uID").toString());
@@ -75,6 +76,15 @@
 		            <li>
 		            	<a href="Servlet_logout">Logout</a>
 		            </li>
+		            <%
+		            	if(session.getAttribute("recID") == null){
+		            %>
+		            <li>
+		            	<a href="edit.jsp">Edit</a>
+		            </li>
+		            <%
+		            	}
+		            %>
         		</ul>
         	</div>
     </nav>
@@ -85,28 +95,28 @@
   background: linear-gradient(to right, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */"></div>
 
 		<%
-		
+
 		package1.Details d = new Details();
 		ResultSet rs = d.getDetails(uID);
-		
+
 		package1.Education e = new Education();
 		ResultSet rs1 = e.getEducation(uID);
-		
+
 		package1.SkillSet s = new SkillSet();
 		ResultSet skill = s.getSkillSet(uID);
-		
+
 		package1.Certification c = new Certification();
 		ResultSet certi = c.getCertificate(uID);
-		
+
 		package1.Internships i = new Internships();
 		ResultSet intern = i.getInternships(uID);
-		
+
 		package1.Projects p = new Projects();
 		ResultSet proj = p.getProjects(uID);
-		
+
 		package1.Research r = new Research();
 		ResultSet resr = r.getResearch(uID);
-		
+
 		String name = "";
 		String gender = "";
 		String mailId = "";
@@ -122,7 +132,7 @@
 		String collegeName = "";
 		int currentSem = 0;
 		String CGPA = "";
-		
+
 		if(rs.next() != false){
 		name = rs.getString("name");
 		gender = rs.getString("gender");
@@ -133,7 +143,7 @@
 		fieldOfInterest = rs.getString("fieldOfInterest");
 		internJob = rs.getString("internJob");
 		}
-		
+
 		if(rs1.next() != false){
 			tenthpercent = rs1.getInt("tenthpercent");
 			twelfthpercent = rs1.getInt("twelfthpercent");
@@ -143,7 +153,7 @@
 			currentSem = rs1.getInt("currentSem");
 			CGPA = rs1.getString("CGPA");
 		}
-		
+
 		%>
 		<div class="main main-raised">
 			<div class="profile-content">
@@ -161,7 +171,7 @@
 	                </div>
 
 					<div class="row">
-						<div class="col-md-6 col-md-offset-3">
+						<div class="col-md-10 col-md-offset-1">
 							<div class="profile-tabs">
 			                    <div class="nav-align-center">
 									<ul class="nav nav-pills" role="tablist">
@@ -253,11 +263,11 @@
 												</div>
 												<div class="col-md-3 skills">
 													<br>
-													<p class="efficiency" id="years"><%=courseName %></p>		
+													<p class="efficiency" id="years"><%=courseName %></p>
 							                   	</div>
 							                   	<div class="col-md-3 skills">
 													<br>
-													<p class="efficiency" id="years"><%=issueDate %></p>		
+													<p class="efficiency" id="years"><%=issueDate %></p>
 							                   	</div>
 											</div>
 											<%
@@ -284,7 +294,7 @@
 												String skillName = skill.getString("skillName");
 												int efficiency = skill.getInt("percentEfficiency");
 												int years = skill.getInt("noOfYears");
-											
+
 											%>
 											<div class="row">
 												<div class="col-md-4 skills">
@@ -330,7 +340,7 @@
 							                       	%>
 												</div>
 												<div class="col-md-4">
-												<h4 class="efficiency"><strong>Research:</strong></h4>	
+												<h4 class="efficiency"><strong>Research:</strong></h4>
 													<%
 													while(resr.next()){
 														String topic = resr.getString("topic");
@@ -371,7 +381,7 @@
 							                    <br >
 							                    <%
 												}
-							                    %>						                       	
+							                    %>
 												</div>
 											</div>
 				                        </div>

@@ -12,8 +12,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	
 	<%  
-	 if(session.getAttribute("uID") == null){
+	 if(session.getAttribute("uID") == null || session.getAttribute("recID") != null){
 		 response.sendRedirect("login.jsp");
+		 session.invalidate();
 	 }
 	int uID = Integer.parseInt(session.getAttribute("uID").toString());
 	%>
@@ -60,6 +61,10 @@
 		            <li>
 		            	<a href="Servlet_logout">Logout</a>
 		            </li>
+		            <li>
+		            	<a href="profile.jsp">View Profile</a>
+		            </li>
+		            
         		</ul>
         	</div>
     </nav>

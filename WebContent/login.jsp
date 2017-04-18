@@ -96,7 +96,7 @@
 											Recruiter
 										</label>
 										<label>
-											<input type="radio" name="userType" value="developer">
+											<input type="radio" name="userType" value="developer" checked>
 											Developer
 										</label>
 									</div>
