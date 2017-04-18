@@ -6,8 +6,10 @@ public class SkillSet {
 
 	int uId;
 	String skillName;
+	int noOfYears;
+	int percentEfficiency;
 
-	ResultSet getSkillSet(int uID){
+	public ResultSet getSkillSet(int uID){
 		//try {
 			String query = "Select * from SkillSet where uID=" +
 					uID +
@@ -23,13 +25,18 @@ public class SkillSet {
 	//	}
 	}
 
-	int addSkillSet(int uID,String skillName){
+	public int addSkillSet(int uID,String skillName,int noOfYears,int percentEfficiency){
 	//	try {
 			String query = "Insert into SkillSet values (" +
 						uID +
 						",\"" +
 						skillName +
-						"\");";
+						"\"," +
+						noOfYears +
+						"," +
+						percentEfficiency +
+						");";
+
 
 
 			connection connect = new connection();
@@ -42,4 +49,5 @@ public class SkillSet {
 	//	}
 	}
 
+	
 }

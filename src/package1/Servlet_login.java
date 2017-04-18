@@ -21,7 +21,7 @@ public class Servlet_login extends HttpServlet {
 		
 		if(usertype.equals("recruiter")){
 			
-			RecDetails r = new RecDetails();
+			RecLogin r = new RecLogin();
 			int rID = r.getRecruiter(username, password);
 			
 			if(rID == 0){
