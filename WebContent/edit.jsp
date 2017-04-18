@@ -162,23 +162,23 @@
 			      </section>
 		
 					<section id="skills" class="hidden">
-					<form class="form" method="" action="">
+					<form class="form" method="get" action="Servlet_addskill">
 			        <p>Add new skill:</p>
-			        <p class="setting2"><span>Name</span><input type="text" value='' class="form-control" id="skname" placeholder="Skill Name"></p>
-			        <p class="setting2"><span>Efficiency:</span><input type="text" value='' class="form-control" id="skefficiency" placeholder="Percentage"></p>
-			        <p class="setting2"><span>Experience:</span><input type="text" value='' class="form-control" id="skyears" placeholder="Number of Years"></p>
+			        <p class="setting2"><span>Name</span><input type="text" name="skillName" value='' class="form-control" id="skname" placeholder="Skill Name"></p>
+			        <p class="setting2"><span>Efficiency:</span><input type="text" name="percentEfficiency" value='' class="form-control" id="skefficiency" placeholder="Percentage"></p>
+			        <p class="setting2"><span>Experience:</span><input type="text" name="noOfYears" value='' class="form-control" id="skyears" placeholder="Number of Years"></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			      	</section>
       
 			      	<section id="workex" class="hidden">
 			      	<p>Add work experience:</p>
-			        <form class="form" method="" action="">
+			        <form class="form" method="get" action="Servlet_addintern">
 			        <p class="setting2"><strong>INTERNSHIP</strong></p>
-			        <p class="setting2"><span>Company:</span><input type="text" value='' class="form-control" id="company" placeholder="Company Name"></p>
-			        <p class="setting2"><span>Started:</span><input class="datepicker form-control" type="text" value="" id="intstarted" placeholder="mm/dd/yyyy"/></p>
-			        <p class="setting2"><span>Ended:</span><input class="datepicker form-control" type="text" value="" id="intended" placeholder="mm/dd/yyyy"/></p>
-			        <p class="setting2"><span>Stipend:</span><input type="text" value='' class="form-control" id="stipend" placeholder="Stipend"></p>
+			        <p class="setting2"><span>Company:</span><input type="text" name="companyName" value='' class="form-control" id="company" placeholder="Company Name"></p>
+			        <p class="setting2"><span>Started:</span><input class="datepicker form-control" type="text" name="startDate" value="" id="intstarted" placeholder="mm/dd/yyyy"/></p>
+			        <p class="setting2"><span>Ended:</span><input class="datepicker form-control" type="text" name="endDate" value="" id="intended" placeholder="mm/dd/yyyy"/></p>
+			        <p class="setting2"><span>Stipend:</span><input type="text" value='' class="form-control" name="stipend" id="stipend" placeholder="Stipend"></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			        
