@@ -1,7 +1,5 @@
 package package1;
 
-import java.sql.*;
-
 public class Start {
 
 public static void main(String[] args) {

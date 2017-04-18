@@ -80,8 +80,8 @@
 		String fieldOfInterest = "";
 		String internJob = "";
 		int age = 0;
-		int tenthpercent = 0;
-		int twelfthpercent = 0;
+		String tenthpercent = "";
+		String twelfthpercent = "";
 		String board = "";
 		int yearOfPassing = 0;
 		String collegeName = "";
@@ -100,8 +100,8 @@
 		}
 		
 		if(rs1.next() != false){
-			tenthpercent = rs1.getInt("tenthpercent");
-			twelfthpercent = rs1.getInt("twelfthpercent");
+			tenthpercent = rs1.getString("tenthpercent");
+			twelfthpercent = rs1.getString("twelfthpercent");
 			board = rs1.getString("board");
 			yearOfPassing = rs1.getInt("yearOfPassing");
 			collegeName = rs1.getString("collegeName");
@@ -148,14 +148,15 @@
 			        </section>
 		
 					<section id="education" class="hidden">
-			        <form class="form" method="" action="">
+			        <form class="form" method="get" action="Servlet_updateeducation">
       				<p>Education:</p>   				
-			        <p class="setting2" id="lboard"><span>Board </span><input type="text" value='<%=board %>' class="form-control" id="board" placeholder="Board..."></p>
-        	        <p class="setting2" id="l10per"><span>10th Percentage </span><input type="text" value='<%=tenthpercent %>' class="form-control" id="10per" placeholder="10th Percentage..."></p>
-			        <p class="setting2" id="l12per"><span>12th Percentage </span><input type="text" value='<%=twelfthpercent %>' class="form-control" id="12per" placeholder="12th Percentage..."></p>
-			        <p class="setting2" id="lyearop"><span>Year of Passing </span><input type="text" value='<%=yearOfPassing %>' class="form-control" id="yearop" placeholder="Year Of Passing..."></p>
-			        <p class="setting2" id="lcollege"><span>College </span><input type="text" value='<%=collegeName %>' class="form-control" id="college" placeholder="College Name..."></p>
-			        <p class="setting2" id="lcgpa"><span>CGPA </span><input type="text" value='<%=CGPA %>' class="form-control" id="cgpa" placeholder="CGPA..."></p>
+			        <p class="setting2" id="lboard"><span>Board </span><input type="text" name="board" value='<%=board %>' class="form-control" id="board" placeholder="Board..."></p>
+        	        <p class="setting2" id="l10per"><span>10th Percentage </span><input type="text" name="tenthpercent" value='<%=tenthpercent %>' class="form-control" id="10per" placeholder="10th Percentage..."></p>
+			        <p class="setting2" id="l12per"><span>12th Percentage </span><input type="text" name="twelfthpercent" value='<%=twelfthpercent %>' class="form-control" id="12per" placeholder="12th Percentage..."></p>
+			        <p class="setting2" id="lyearop"><span>Year of Passing </span><input type="text" name="yearOfPassing" value='<%=yearOfPassing %>' class="form-control" id="yearop" placeholder="Year Of Passing..."></p>
+			        <p class="setting2" id="lcollege"><span>College </span><input type="text" name="collegeName" value='<%=collegeName %>' class="form-control" id="college" placeholder="College Name..."></p>
+			        <p class="setting2" id="lcollege"><span>Current Sem </span><input type="text" name="currentSem" value='<%=currentSem %>' class="form-control" id="college" placeholder="Current Semester..."></p>
+			        <p class="setting2" id="lcgpa"><span>CGPA </span><input type="text" name="CGPA" value='<%=CGPA %>' class="form-control" id="cgpa" placeholder="CGPA..."></p>
 			        <center><button type="submit" class="btn btn-primary btn-simple btn-lg btn-login-submit">Submit</button></center>
 			        </form>
 			      </section>
