@@ -52,6 +52,13 @@ public class Login {
 					"\");";
 					
 			connect.update(query);
+			
+			Details d = new Details();
+			d.addDetails(uID, null, null, 0, null, null, null, null,null);
+			
+			Education e = new Education();
+			e.addEducation(uID, 0, 0, null , 0, null, 0, 0);
+			
 			return uID;
 		}
 		catch(SQLException e){

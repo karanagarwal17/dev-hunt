@@ -13,6 +13,7 @@
 			<%
 			int recID = 0;
 			 if(session.getAttribute("recID") == null){
+				 session.invalidate();
 				 response.sendRedirect("login.jsp");
 			 }
 			 else{

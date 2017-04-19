@@ -13,8 +13,8 @@
 	<%
 	int uID = 0;
 	 if(session.getAttribute("uID") == null){
-		 response.sendRedirect("login.jsp");
 		 session.invalidate();
+		 response.sendRedirect("login.jsp");
 	 }
 	 else{
 		uID = Integer.parseInt(session.getAttribute("uID").toString());

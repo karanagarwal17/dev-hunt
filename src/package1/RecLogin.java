@@ -58,6 +58,16 @@ public class RecLogin {
 					
 			connect.update(query);
 			
+			query = "insert into RecDetails values(" +
+					recID + 
+					",null,null,null,null,null);"
+					;
+			
+			connect.update(query);
+			
+			RecDetails r = new RecDetails();
+			r.addRecDetails(recID, Username, null, null, null, null);
+			
 			return recID;
 		}
 		catch(SQLException e){

@@ -29,19 +29,19 @@ public class RecDetails {
 
 	public int addRecDetails(int recID, String name, String companyName,String field, String position, String location){
 		//try {
-			String query = "Insert into RecDetails values (" +
-						recID +
-						",\"" +
+			String query = "update RecDetails set name=\"" +
 						name +
-						"\",\"" +
+						"\",companyName=\"" +
 						companyName +
-						"\",\"" +
+						"\",field=\"" +
 						field +
-						"\",\"" +
+						"\",position=\"" +
 						position +
-						"\",\"" +
+						"\",location=\"" +
 						location +
-						"\");";
+						"\" where recID = " +
+						recID +
+						";";
 						
 						
 

@@ -3,16 +3,16 @@ package package1;
 import java.sql.*;
 
 class connection {
-	
+
 	Statement stmt;
 	Connection con;
-	
+
 	connection(){
 		try{
 		Class.forName("com.mysql.jdbc.Driver");
-		
+
 		con = DriverManager.getConnection("jdbc:mysql://localhost/DPMS","root","karanagarwal17");
-		stmt = con.createStatement();	
+		stmt = con.createStatement();
 		}
 		catch(SQLException se){
 			se.printStackTrace();
@@ -21,7 +21,7 @@ class connection {
 			e.printStackTrace();
 		}
 	}
-	
+
 	ResultSet query(String query) {
 		try {
 			ResultSet rs = stmt.executeQuery(query);
@@ -36,10 +36,10 @@ class connection {
 			return null;
 		}
 	}
-	
+
 	int update(String query) {
-		try {	
-			int status = stmt.executeUpdate(query);			
+		try {
+			int status = stmt.executeUpdate(query);
 			return status;
 		}
 		catch(SQLException se){
@@ -51,7 +51,7 @@ class connection {
 			return 0;
 		}
 	}
-	
+
 	void close(){
 		try{
 		con.close();

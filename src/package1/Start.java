@@ -172,15 +172,18 @@ public static void main(String[] args) {
 		Login u=new Login();
 		RecDetails rd=new RecDetails();
 		RecLogin rc = new RecLogin();
-		Queries q = new Queries();
-	    e.addEducation(1,9.8,9.0,"CBSE",2015,"LNMIIT",3,8.5);
-		e.addEducation(2,8.9,9.4,"ICSE",2014,"IIT_DELHI",5,8.9);
-		e.addEducation(3,10.0,8.9,"CBSE",2016,"IIT_BOMBAY",2,7.9);
-		e.addEducation(4,8.5,7.9,"RBSE",2014,"SRM",3,6.5);
-		d.addDetails(1, "Rita", "Female", 19, "ritajain@gmail.com", "9460337126", "Indian", "Web Development", "Intern");
-		d.addDetails(2, "Raj", "Male", 20, "rajagarwal@gmail.com", "9460337890", "Indian", "Android Development", "Intern");
-		d.addDetails(3, "Gita", "Female", 22, "gitan@gmail.com", "9468937126", "Indian", "Data Science", "Job");
-		d.addDetails(4, "Rohan", "Male", 21, "rohanjain@gmail.com", "8860337126", "Indian", "Web Development", "Intern");
+		u.addUser("somya_makkad", "lnm234");
+		u.addUser("ayush_singh","ln787");
+		u.addUser("gita1", "lnm");
+		u.addUser("rohan7", "lnmiit");
+		e.updateEducation(1,9.8,9.0,"CBSE",2015,"LNMIIT",3,8.5);
+		e.updateEducation(2,8.9,9.4,"ICSE",2014,"IIT_DELHI",5,8.9);
+		e.updateEducation(3,10.0,8.9,"CBSE",2016,"IIT_BOMBAY",2,7.9);
+		e.updateEducation(4,8.5,7.9,"RBSE",2014,"SRM",3,6.5);
+		d.updateDetails(1, "Rita", "Female", 19, "ritajain@gmail.com", "9460337126", "Indian", "Web Development", "Intern");
+		d.updateDetails(2, "Raj", "Male", 20, "rajagarwal@gmail.com", "9460337890", "Indian", "Android Development", "Intern");
+		d.updateDetails(3, "Gita", "Female", 22, "gitan@gmail.com", "9468937126", "Indian", "Data Science", "Job");
+		d.updateDetails(4, "Rohan", "Male", 21, "rohanjain@gmail.com", "8860337126", "Indian", "Web Development", "Intern");
 		s.addSkillSet(1, "HTML",2,45);
 		s.addSkillSet(1, "CSS", 1, 34);
 		s.addSkillSet(2, "Java",3,67);
@@ -201,11 +204,10 @@ public static void main(String[] args) {
 		p.addProjects(4, "Management Portal", "Web development", "Dr. Preety Singh", "12 March 2016", "2 July 2016");
 		r.addResearch(1,"Research Based Web design","Web_dev", "Dr. AR", "abc", "12 Sep 2016");
 		r.addResearch(1,"Website design principles","Web_dev", "Dr. Aj", "abc", "5 May 2015");
-		u.addUser("somya_makkad", "lnm234");
-		u.addUser("ayush_singh","ln787");
+		rc.addRecruiter("karan", "lnm89");
+		rc.addRecruiter("rk123", "jklnm");
 		rd.addRecDetails(1, "karan", "Internshala", "web development", "regional manager", "jaipur");
 		rd.addRecDetails(2, "Rk", "Eventgraphia", "photography", "CEO", "jaipur");
-		rc.addRecruiter("karan", "lnm89");
 		e.updateEducation(1, 9.8, 9.0, "CBSE", 2015,"LNMIIT", 5, 8.7);
 		d.updateDetails(2, "Raj", "Male", 20, "rajagarwal@gmail.com", "9460337890", "Indian", "Android Development", "Job");
 		s.addSkillSet(3, "Probability",1,30);
@@ -221,15 +223,6 @@ public static void main(String[] args) {
 		i.addInternships(3, "Data Scientist labs", "23 May 2014 ","15 July 2014", 6000);
 		p.addProjects(2, "Java Based Android App", "Android development", "Prof. Jay", "2 May 2016", "23 July 2016");
 		p.addProjects(3, "Data Prediction For Business", "Data Prediction", "Dr. Ayush Agarwal", "1 June 2016", "23 August 2016");
-		u.addUser("gita1", "lnm");
-		u.addUser("rohan7", "lnmiit");
-		rc.addRecruiter("rk123", "jklnm");
-		int a[] = q.runQuery(1, 1, 1, 1, null);
-		int x= 0;
-		while(a[x] != 0){
-			System.out.println(a[x]);
-			x++;
-		}
 	}
 	catch(Exception se) {
 		se.printStackTrace();
