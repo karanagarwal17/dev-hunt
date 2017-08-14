@@ -1,1 +1,1 @@
-# dev-hunt
+# Dev Hunt
