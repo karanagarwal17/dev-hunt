@@ -14,7 +14,7 @@
 	int uID = 0;
 	 if(session.getAttribute("uID") == null){
 		 session.invalidate();
-		 response.sendRedirect("login.jsp");
+		 response.sendRedirect("index.jsp");
 	 }
 	 else{
 		uID = Integer.parseInt(session.getAttribute("uID").toString());

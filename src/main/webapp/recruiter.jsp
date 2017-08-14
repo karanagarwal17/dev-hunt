@@ -14,7 +14,7 @@
 			int recID = 0;
 			 if(session.getAttribute("recID") == null){
 				 session.invalidate();
-				 response.sendRedirect("login.jsp");
+				 response.sendRedirect("index.jsp");
 			 }
 			 else{
 				recID = Integer.parseInt(session.getAttribute("recID").toString());
@@ -66,16 +66,16 @@
 	</div>
 	</nav>
 	<%
-		
+
 				package1.RecDetails r = new RecDetails();
 				ResultSet rs = r.getRecDetails(recID);
-				
+
 				String name = "";
 				String companyName = "";
 				String field = "";
 				String position = "";
 				String location = "";
-				
+
 				if(rs.next() != false){
 					name = rs.getString("name");
 					companyName = rs.getString("companyName");
@@ -83,8 +83,8 @@
 					position = rs.getString("position");
 					location = rs.getString("location");
 				}
-				
-				
+
+
 				%>
 	<div class="wrapper">
 		<div class="header header-filter"

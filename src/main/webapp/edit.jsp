@@ -11,10 +11,10 @@
 <link rel="icon" type="image/png" href="assets/img/favicon.ico">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-<%  
+<%
 	 if(session.getAttribute("uID") == null || session.getAttribute("recID") != null){
 		session.invalidate();
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("index.jsp");
 	 }
 	int uID = Integer.parseInt(session.getAttribute("uID").toString());
 	%>
@@ -66,13 +66,13 @@
 	</nav>
 
 	<%
-		
+
 		package1.Details d = new Details();
 		ResultSet rs = d.getDetails(uID);
-		
+
 		package1.Education e = new Education();
 		ResultSet rs1 = e.getEducation(uID);
-		
+
 		String name = "";
 		String gender = "";
 		String mailId = "";
@@ -88,7 +88,7 @@
 		String collegeName = "";
 		int currentSem = 0;
 		String CGPA = "";
-		
+
 		if(rs.next() != false){
 		name = rs.getString("name");
 		gender = rs.getString("gender");
@@ -99,7 +99,7 @@
 		fieldOfInterest = rs.getString("fieldOfInterest");
 		internJob = rs.getString("internJob");
 		}
-		
+
 		if(rs1.next() != false){
 			tenthpercent = rs1.getString("tenthpercent");
 			twelfthpercent = rs1.getString("twelfthpercent");
@@ -109,7 +109,7 @@
 			currentSem = rs1.getInt("currentSem");
 			CGPA = rs1.getString("CGPA");
 		}
-		
+
 		%>
 
 
